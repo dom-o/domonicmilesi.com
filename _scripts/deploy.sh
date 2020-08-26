@@ -1,6 +1,8 @@
 #!/bin/bash
 set -x
 if [ $TRAVIS_BRANCH == 'master' ] ; then
+    eval "$(ssh-agent -s)"
+    ssh-add ~/.ssh/id_rsa
     # Initialize a new git repo in _site, and push it to our server.
     cd _site
     git init
