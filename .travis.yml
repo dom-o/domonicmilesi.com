@@ -4,7 +4,7 @@ rvm:
 addons:
   ssh_known_hosts: domonicmilesi.com
 before_install:
-  - bash _scripts/install.sh
+  - bash _scripts/before_install.sh
 script:
   - bash _scripts/build.sh
 after_success:
