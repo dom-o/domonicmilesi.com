@@ -1,11 +1,11 @@
 language: ruby
 rvm:
-  - 2.5.5
+- 2.5.5
 addons:
   ssh_known_hosts: domonicmilesi.com
 before_install:
-  - bash _scripts/before_install.sh
+- bash _scripts/before_install.sh
 script:
-  - bash _scripts/build.sh
+- bash _scripts/build.sh
 after_success:
-  - bash _scripts/deploy.sh
+- bash _scripts/deploy.sh
