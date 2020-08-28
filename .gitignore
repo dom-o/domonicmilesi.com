@@ -13,3 +13,5 @@ _sass/.scss-lint.yml
 *.iml
 .idea
 .directory
+deploy_key.pub
+.resources
