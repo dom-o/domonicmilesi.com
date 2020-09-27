@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{{ page.title }} - domonicmilesi.com</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Domonic Milesi" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    {% if page.custom_style %}
+      <style>
+        {% include {{page.custom_style}} %}
+      </style>
+    {% endif %}
+  </head>
+  <body>
+    <header class="sidebar">
+      <div class="container">
+        <h1>Domonic Milesi</h1>
+        <nav class="sidebar-nav">
+          <a class="sidebar-nav-item" href="/">Home</a>
+          <a class="sidebar-nav-item" href="projects.html">Projects</a>
+          <a class="sidebar-nav-item" href="about.html">About</a>
+          <a class="sidebar-nav-item" href="bookmarks.html">Bookmarks</a>
+        </nav>
+        <div>
+          <a href="#">email</a> |
+          <a href="https://twitter.com/domonic_m">twitter</a> |
+          <a href="https://github.com/dom-o/">github</a>
+        </div>
+      </div>
+    </header>
+    <main class="content container">
+      {{ content }}
+    </main>
+  </body>
+</html>

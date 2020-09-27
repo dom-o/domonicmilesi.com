@@ -1,0 +1,14 @@
+page_list_title: Pages
+pages:
+
+- title: One Rep Max Calculator
+  url: one-rep-max.html
+  date: 2020-07-16
+
+- title: gravity-memory
+  url: gravity-memory.html
+  date: 2020-04-23
+
+- title: route descriptor
+  url: route-descriptor/index.html
+  date: 2020-04-01

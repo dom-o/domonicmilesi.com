@@ -1,17 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Domonic Milesi</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  </head>
-  <body>
-    <div>
-      <img
-        src="images/me_smiling_thumbs_up_red_rocks.jpg"
-        alt="Domonic Milesi, smiling and doing the thumbs up; in the background is Red Rocks, NV."
-        style="max-width:70%;"
-      >
-    </div>
-  </body>
-</html>
+---
+layout: default
+title: Home
+---
+<img
+  src="images/me_smiling_thumbs_up_red_rocks.jpg"
+  alt="Domonic Milesi, smiling and doing the thumbs up; in the background is Red Rocks, NV."
+  style="max-width:60%;"
+>
+<ul>
+  {% assign content = site.data.pagelist.pages | concat:site.posts | sort: "date" | reverse %}
+  {% for item in content %}
+    <li><a href="{{ item.url }}">{{ item.title }}</a> - {{ item.date | date: "%b %e, %Y" }}</li>
+  {% endfor %}
+</ul>
