@@ -1,7 +1,5 @@
-body {
-  padding: 0rem 2rem;
-  max-width: 95vw;
-  overflow-x: auto;
+.content {
+  max-width: none;
 }
 p {
   margin-bottom: 2rem;
@@ -13,8 +11,12 @@ table {
 th {
   border-bottom: solid #fff;
 }
+td {
+  border-left:solid thin #fff;
+}
 td, th {
-  padding: 0rem 1rem;
+  /* border-left: solid thin #fff; */
+  padding: 0rem 0.5rem;
   text-align: center;
 }
 .table-container {
