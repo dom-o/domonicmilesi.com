@@ -17,18 +17,13 @@
   <body>
     <header class="sidebar">
       <div class="container">
-        <h1>Domonic Milesi</h1>
+        <h1 style="line-height:1.6;font-size:1rem;margin:0 0 0.25em 0;">Domonic Milesi</h1>
         <nav class="sidebar-nav">
           <a class="sidebar-nav-item" href="/">Home</a>
-          <a class="sidebar-nav-item" href="projects.html">Projects</a>
-          <a class="sidebar-nav-item" href="about.html">About</a>
-          <a class="sidebar-nav-item" href="bookmarks.html">Bookmarks</a>
+          {% for item in site.fundamentals %}
+            <a class="sidebar-nav-item" href="{{ item.url }}">{{ item.title }}</a>
+          {% endfor %}
         </nav>
-        <div>
-          <a href="#">email</a> |
-          <a href="https://twitter.com/domonic_m">twitter</a> |
-          <a href="https://github.com/dom-o/">github</a>
-        </div>
       </div>
     </header>
     <main class="content container">

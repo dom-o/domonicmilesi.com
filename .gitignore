@@ -15,3 +15,4 @@ _sass/.scss-lint.yml
 .directory
 deploy_key.pub
 .resources
+/resources

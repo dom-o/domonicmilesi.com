@@ -1,1 +1,12 @@
 permalink: /:title
+collections:
+  pages:
+    output: true
+    permalink: /:title
+  fundamentals:
+    output: true
+    permalink: /:title
+    order:
+      - bookmarks.md
+      - projects.html
+      - about.md
