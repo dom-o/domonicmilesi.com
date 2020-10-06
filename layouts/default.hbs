@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+      {{#if title }}
+        {{title}} -
+      {{/if }}
+      domonicmilesi.com
+    </title>
+
+    <meta charset="utf-8">
+    <meta name="author" content="Domonic Milesi" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <link rel="shortcut icon" href="{{rootPath}}favicon.png">
+    <link rel="stylesheet" href="{{rootPath}}css/style.css" />
+    {{#if sidebar }}
+    <link rel="stylesheet" href="{{rootPath}}css/style-sidebar.css"/>
+    {{/if }}
+
+    <!-- link js here -->
+    {{#if js_dir }}
+    <script defer src="{{rootPath}}js/{{js_dir}}/**/*.js"></script>
+    {{/if}}
+
+    {{#if custom_style }}
+      <style>
+        {{ custom_style }}
+      </style>
+    {{/if}}
+  </head>
+
+  <body>
+    {{#if sidebar }}
+    {{> sidebar }}
+    {{/if}}
+    <main class="content container">
+      {{{contents}}}
+    </main>
+    {{#unless sidebar }}
+      <footer style="position:absolute; bottom:0; width:100%; padding:1rem 2rem; margin-top:2rem; background-color:black; color:#fff;">
+        <small>Made by </small><a style="color:#FFDC00;" href="https://domonicmilesi.com/">Domonic Milesi</a>
+      </footer>
+    {{/unless}}
+  </body>
+</html>

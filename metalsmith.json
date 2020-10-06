@@ -1,0 +1,22 @@
+{
+  "plugins": [
+    {"metalsmith-debug": {} },
+    {"metalsmith-metadata": {
+        "pages": "pagelist.yaml",
+        "projs": "fundamentals/projlist.yaml"
+      }
+    },
+    { "metalsmith-markdown": {} },
+    { "metalsmith-include": {} },
+    { "metalsmith-discover-partials": {} },
+    { "metalsmith-discover-helpers": {} },
+    { "metalsmith-rootpath": {} },
+    { "metalsmith-in-place": {} },
+    { "metalsmith-collections": {
+        "fundamentals": "fundamentals/*"
+      }
+    },
+    { "metalsmith-nestedlayouts": {} },
+    { "metalsmith-link-globs": {} }
+  ]
+}

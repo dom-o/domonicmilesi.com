@@ -16,3 +16,5 @@ _sass/.scss-lint.yml
 deploy_key.pub
 .resources
 /resources
+/build
+npm-debug.log*

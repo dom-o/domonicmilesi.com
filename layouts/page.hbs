@@ -1,0 +1,13 @@
+---
+layout: default.hbs
+---
+<h1>{{title}}</h1>
+{{#if writeup }}
+{{{ writeup }}}
+{{else}}
+  {{#if writeup_link }}
+    <small>Read more about this project <a href="{{writeup_link}}">here</a>.</small>
+  {{/if}}
+{{/if}}
+
+{{{contents}}}

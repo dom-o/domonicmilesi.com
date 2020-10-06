@@ -1,0 +1,10 @@
+---
+layout: default.hbs
+sidebar: true
+title: Projs
+---
+{{#each projs}}
+<ul>
+    <li><a href="{{ this.url }}">{{ this.title }}</a> -- <a href="{{ this.repo }}">see the code</a></li>
+</ul>
+{{/each}}
