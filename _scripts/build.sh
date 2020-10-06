@@ -1,4 +1,6 @@
 #!/bin/bash
 set -x
-# Build the site with Jekyll
-bundle exec jekyll build
+#install node dependencies
+npm ci
+#build the site with metalsmith
+npx metalsmith
