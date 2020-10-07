@@ -1,6 +1,6 @@
 #!/bin/bash
 set -x
 #install node dependencies
-npm ci
+npm ci --production
 #build the site with metalsmith
 npx metalsmith
