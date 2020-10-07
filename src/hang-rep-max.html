@@ -1,0 +1,95 @@
+---
+layout: page.hbs
+title: Hangboard Rep Max Calculator
+sidebar: true
+js_dir: hang-rep-max
+include:
+  custom_style: css/one-rep-max.css
+---
+<input type="radio" id="sensible" name="calc_output" value="sensible" checked><label for="sensible">sensible outputs</label>
+<input type="radio" id="raw" name="calc_output" value="raw"><label for="raw">raw outputs</label>
+<p>
+  Sometimes these equations evaulate to something that doesn't really make sense, e.g. negative reps.<br>
+  Sensible outputs mitigates that as follows:<br>
+    &nbsp;&nbsp;-no negative reps; outputs 0 instead.<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;--unfortunately some of the formulas will still output ludicrous rep numbers with submaximal weight.<br>
+    &nbsp;&nbsp;-when calculating reps: if the weight is more than your 1RM, output 0 reps.<br>
+    &nbsp;&nbsp;-when calculating reps: if the weight is your 1RM, output 1 rep.<br>
+    &nbsp;&nbsp;-when calculating 1RM: if you do 1 rep with a weight, output that entered weight.</p>
+<form id="solve-for-max">
+  <h3>What is my 2"RM if I hang
+  <input type="number" min="0" step="any" required id="weight-max"> total weight
+   for
+  <select type="number" id="reps-max">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+    <option value="13">13</option>
+    <option value="14">14</option>
+    <option value="15">15</option>
+    <option value="16">16</option>
+    <option value="17">17</option>
+    <option value="18">18</option>
+    <option value="19">19</option>
+    <option value="20">20</option>
+  </select>
+  seconds?</h3>
+</form>
+<div class="table-container">
+  <table id="max-results"></table>
+</div>
+
+<form id="solve-for-reps"><h3>If my 2"RM is
+  <input type="number" min="0" step="any" required id="max-reps">
+  how long can I hang
+  <input type="number" min="0" step="any" required id="weight-reps">?</h3>
+</form>
+<div class="table-container">
+  <table id="reps-results"></table>
+</div>
+
+<form id="solve-for-weight">
+  <h3>If my 2"RM is
+  <input type="number" min="0" step="any" required id="max-weight">
+  what is my
+  <select id="reps-weight">
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+    <option value="13">13</option>
+    <option value="14">14</option>
+    <option value="15">15</option>
+    <option value="16">16</option>
+    <option value="17">17</option>
+    <option value="18">18</option>
+    <option value="19">19</option>
+    <option value="20">20</option>
+  </select> rep max?</h3>
+</form>
+<div class="table-container">
+  <table id="weight-results"></table>
+</div>
+
+<h2>Equations</h2>
+<div class="table-container">
+  <table id="equations"></table>
+</div>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
