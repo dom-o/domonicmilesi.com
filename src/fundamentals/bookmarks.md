@@ -2,6 +2,7 @@
 layout: default.hbs
 sidebar: true
 title: Bookmarks
+ord: 1
 ---
 # Bookmarks
 

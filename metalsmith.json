@@ -13,10 +13,13 @@
     { "metalsmith-rootpath": {} },
     { "metalsmith-in-place": {} },
     { "metalsmith-collections": {
-        "fundamentals": "fundamentals/*"
+        "fundamentals": {
+          "pattern": "fundamentals/*",
+          "sortBy": "ord"
+        }
       }
     },
     { "metalsmith-nestedlayouts": {} },
-    { "metalsmith-link-globs": {} }
+    { "metalsmith-html-glob": {} }
   ]
 }
