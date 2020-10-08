@@ -4,7 +4,7 @@ title: Hangboard Rep Max Calculator
 sidebar: true
 js_dir: hang-rep-max
 include:
-  custom_style: css/one-rep-max.css
+  custom_style: css/hang-rep-max.css
   writeup: posts/hang-rep-max-writeup
 ---
 <input type="radio" id="sensible" name="calc_output" value="sensible" checked><label for="sensible">sensible outputs</label>
@@ -80,7 +80,11 @@ include:
 
 <h2>Equations</h2>
 <div class="table-container">
-  <table id="equations"></table>
+  <table>
+    <caption>Note: t is hang time in seconds, m is 2"RM, and w is total weight.</caption>
+    <thead><tr><th></th><th>Solve for 2"RM</th><th>Solve for time</th><th>Solve for >2" RM</th></tr></thead>
+    <tbody id="equations"></tbody>
+  </table>
 </div>
 
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
