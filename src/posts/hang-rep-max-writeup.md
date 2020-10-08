@@ -12,7 +12,7 @@ A couple use notes:
 
 1. 2"RM is the maximal weight you can hang for 2 seconds, just like 1RM is the maximal weight with which you can do 1 rep.
 2. If you are doing no-hangs, just use the weight itself; if you're doing normal hangs, make sure to include bodyweight (total weight= bodyweight + weight added).
-3. Sometimes these equations will spit out answers that don't really make sense, e.g. negative hang times.  Checking 'sensible outputs' mitigates that as follows:
+3. Sometimes these equations will spit out answers that don't really make sense, e.g. negative hang times. Checking 'sensible outputs' mitigates that as follows:
 
  - no negative hang times; outputs 0 instead.
     - unfortunately some of the formulas will still output ludicrous hang times with submaximal weight.

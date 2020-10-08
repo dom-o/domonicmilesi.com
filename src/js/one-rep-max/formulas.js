@@ -75,7 +75,7 @@ const formulas = {
         // return Math.log(((100*weight)-(52.2*max)) / (41.9*max)) / -0.055
         return Math.log((((100*weight)/max) - 52.2) / 41.9) / -0.055
       }, str: /**'$$r={\\ln\\left({\\frac{\\frac{100w}{m}-52.2}{41.9}}}\\right)\\div{-0.055}$$'**/
-      '$$r=\\ln\\left(\\frac{\\frac{100w}{m}-52.2}{41.9}\\right)\\div{-0.055}$$'
+      '$$r=\\ln\\left(\\frac{\\frac{100w}{m}-52.2}{41.9}\\right)\\div-0.055$$'
     },
     solveForWeight: {
       func: function(max, reps) {
@@ -109,7 +109,7 @@ const formulas = {
       func: function(max, weight) {
         // return Math.log(((100*weight) - (48.8*max)) / (53.8*max)) / -0.075
         return Math.log((((100*weight)/max) - 48.8) / 53.8) / -0.075
-      }, str: '$$r={\\ln\\left({\\frac{\\frac{100w}{m}-48.8}{53.8}}\\right)}\\div{-0.075}$$'
+      }, str: '$$r=\\ln\\left(\\frac{\\frac{100w}{m}-48.8}{53.8}\\right)\\div-0.075$$'
     },
     solveForWeight: {
       func: function(max, reps) {

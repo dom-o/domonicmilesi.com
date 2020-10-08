@@ -1,8 +1,8 @@
-.content {
+.container {
   max-width: none;
 }
-p {
-  margin-bottom: 1rem;
+.content  p,form,h1,h2,blockquote,ol,ul,input,label {
+  max-width: 45rem;
 }
 table {
   margin: 0rem 0rem 0.5rem;
@@ -11,15 +11,12 @@ table {
 th {
   border-bottom: solid #fff;
 }
-td {
-  border-left:solid thin #fff;
-}
 td, th {
-  /* border-left: solid thin #fff; */
-  padding: 0rem 0.5rem;
+  padding: 0rem 1rem;
   text-align: center;
 }
 .table-container {
+  max-width: 100%;
   margin: 0.5rem 0rem 2rem;
   overflow-x: auto;
 }

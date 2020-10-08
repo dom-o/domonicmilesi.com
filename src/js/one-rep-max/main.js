@@ -28,13 +28,13 @@ for(radio of document.getElementsByName('calc_output')) {
 }
 
 let equations_table = document.getElementById('equations')
-head_html = '<thead><tr><th></th><th>Solve for 1RM</th><th>Solve for reps</th><th>Solve for >1 RM</th></tr></thead>'
-body_html = '<tbody>'
+// head_html = '<thead><tr><th></th><th>Solve for 1RM</th><th>Solve for reps</th><th>Solve for >1 RM</th></tr></thead>'
+body_html = ""//'<tbody>'
 for (const [key,value] of Object.entries(formulas)) {
   body_html += '<tr><th scope="row">' + key + '</th>' + '<td>' + value.solveForMax.str + '</td>' + '<td>' + value.solveForReps.str + '</td>' + '<td>' + value.solveForWeight.str + '</td></tr>'
 }
-body_html += '</tbody>'
-equations_table.innerHTML = head_html + body_html
+// body_html += '</tbody>'
+equations_table.innerHTML = body_html//head_html + body_html
 
 const reps_eval = function(event) {
   weight = Number.parseFloat(document.getElementById('weight-reps').value)

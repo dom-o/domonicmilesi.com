@@ -1,22 +1,27 @@
 ---
 layout: page.hbs
-title: 1RM Calculator
+title: One Rep Max Calculator
 sidebar: true
 js_dir: one-rep-max
 include:
   custom_style: css/one-rep-max.css
 ---
-<h1>One Rep Max Calculator and Equations</h1>
 <input type="radio" id="sensible" name="calc_output" value="sensible" checked><label for="sensible">sensible outputs</label>
 <input type="radio" id="raw" name="calc_output" value="raw"><label for="raw">raw outputs</label>
-<p>
-  Sometimes these equations evaulate to something that doesn't really make sense, e.g. negative reps.<br>
-  Sensible outputs mitigates that as follows:<br>
-    &nbsp;&nbsp;-no negative reps; outputs 0 instead.<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;--unfortunately some of the formulas will still output ludicrous rep numbers with submaximal weight.<br>
-    &nbsp;&nbsp;-when calculating reps: if the weight is more than your 1RM, output 0 reps.<br>
-    &nbsp;&nbsp;-when calculating reps: if the weight is your 1RM, output 1 rep.<br>
-    &nbsp;&nbsp;-when calculating 1RM: if you do 1 rep with a weight, output that entered weight.</p>
+<p>Sometimes these equations will spit out answers that don't really make sense, e.g. negative reps. Checking 'sensible outputs' mitigates that as follows:</p>
+<ul>
+<li>no negative reps; outputs 0 instead.<ul>
+<li>unfortunately some of the formulas will still output ludicrous reps with submaximal weight.</li>
+</ul>
+</li>
+<li>when calculating reps:<ul>
+<li>if the weight is more than your 1RM, output 0 reps.</li>
+<li>if the weight is your 1RM, output 1 rep.</li>
+</ul>
+</li>
+<li>when calculating 1RM: if you do one rep with a weight, output that entered weight.</li>
+</ul>
+
 <form id="solve-for-max">
   <h3>What is my 1RM if I do
   <input type="number" min="0" step="any" required id="weight-max">
@@ -70,7 +75,10 @@ include:
 
 <h2>Equations</h2>
 <div class="table-container">
-  <table id="equations"></table>
+  <table>
+    <thead><tr><th></th><th>Solve for 1RM</th><th>Solve for reps</th><th>Solve for >1 RM</th></tr></thead>
+    <tbody id="equations"></tbody>
+  </table>
 </div>
 
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
