@@ -6,9 +6,7 @@ js_dir: one-rep-max
 include:
   custom_style: css/one-rep-max.css
 ---
-<input type="radio" id="sensible" name="calc_output" value="sensible" checked><label for="sensible">sensible outputs</label>
-<input type="radio" id="raw" name="calc_output" value="raw"><label for="raw">raw outputs</label>
-<p>Sometimes these equations will spit out answers that don't really make sense, e.g. negative reps. Checking 'sensible outputs' mitigates that as follows:</p>
+<p>Use note: sometimes these equations will spit out answers that don't really make sense, e.g. negative reps. Checking 'sensible outputs' mitigates that as follows:</p>
 <ul>
 <li>no negative reps; outputs 0 instead.<ul>
 <li>unfortunately some of the formulas will still output ludicrous reps with submaximal weight.</li>
@@ -21,7 +19,8 @@ include:
 </li>
 <li>when calculating 1RM: if you do one rep with a weight, output that entered weight.</li>
 </ul>
-
+<input type="radio" id="sensible" name="calc_output" value="sensible" checked><label for="sensible">sensible outputs</label>
+<input type="radio" id="raw" name="calc_output" value="raw"><label for="raw">raw outputs</label>
 <form id="solve-for-max">
   <h3>What is my 1RM if I do
   <input type="number" min="0" step="any" required id="weight-max">
