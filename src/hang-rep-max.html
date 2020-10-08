@@ -1,0 +1,91 @@
+---
+layout: page.hbs
+title: Hangboard Rep Max Calculator
+sidebar: true
+js_dir: hang-rep-max
+include:
+  custom_style: css/hang-rep-max.css
+  writeup: posts/hang-rep-max-writeup
+---
+<input type="radio" id="sensible" name="calc_output" value="sensible" checked><label for="sensible">sensible outputs</label>
+<input type="radio" id="raw" name="calc_output" value="raw"><label for="raw">raw outputs</label>
+<form id="solve-for-max">
+  <h3>What is my 2"RM if I hang
+  <input type="number" min="0" step="any" required id="weight-max"> total weight
+   for
+  <select type="number" id="time-max">
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+    <option value="13">13</option>
+    <option value="14">14</option>
+    <option value="15">15</option>
+    <option value="16">16</option>
+    <option value="17">17</option>
+    <option value="18">18</option>
+    <option value="19">19</option>
+    <option value="20">20</option>
+  </select>
+  seconds?</h3>
+</form>
+<div class="table-container">
+  <table id="max-results"></table>
+</div>
+
+<form id="solve-for-time"><h3>If my 2"RM is
+  <input type="number" min="0" step="any" required id="max-time">
+  how long can I hang
+  <input type="number" min="0" step="any" required id="weight-time">?</h3>
+</form>
+<div class="table-container">
+  <table id="time-results"></table>
+</div>
+
+<form id="solve-for-weight">
+  <h3>If my 2"RM is
+  <input type="number" min="0" step="any" required id="max-weight">
+  how much weight can I hang for
+  <select id="time-weight">
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+    <option value="13">13</option>
+    <option value="14">14</option>
+    <option value="15">15</option>
+    <option value="16">16</option>
+    <option value="17">17</option>
+    <option value="18">18</option>
+    <option value="19">19</option>
+    <option value="20">20</option>
+  </select> seconds?</h3>
+</form>
+<div class="table-container">
+  <table id="weight-results"></table>
+</div>
+
+<h2>Equations</h2>
+<div class="table-container">
+  <table>
+    <caption>Note: t is hang time in seconds, m is 2"RM, and w is total weight.</caption>
+    <thead><tr><th></th><th>Solve for 2"RM</th><th>Solve for time</th><th>Solve for >2" RM</th></tr></thead>
+    <tbody id="equations"></tbody>
+  </table>
+</div>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>

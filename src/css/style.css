@@ -25,6 +25,11 @@ a {
   text-decoration: underline;
 }
 
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: .5rem;
   font-weight: bold;
@@ -51,8 +56,18 @@ ul, ol, dl {
   margin-bottom: 1rem;
 }
 
+blockquote {
+  padding: .5rem 1rem;
+  margin: .8rem 0;
+  color: #fff;
+  border-left: .25rem solid #e5e5e5;
+}
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
 .container {
-  max-width: 48rem;
+  max-width: 45rem;
   padding-left:  2rem;
   padding-right: 2rem;
   margin-left:  auto;
