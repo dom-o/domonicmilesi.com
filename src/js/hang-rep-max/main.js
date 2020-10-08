@@ -1,12 +1,12 @@
-const reps_form = document.getElementById('solve-for-reps')
+const time_form = document.getElementById('solve-for-time')
 const weight_form = document.getElementById('solve-for-weight')
 const max_form = document.getElementById('solve-for-max')
 const sensible_output = function() {
   return document.getElementById('sensible').checked && !document.getElementById('raw').checked
 }
-var reps, max, weight, avg, length, head_html, body_html
+var time, max, weight, avg, length, head_html, body_html
 
-let results_tables = [document.getElementById('max-results'), document.getElementById('reps-results'), document.getElementById('weight-results')]
+let results_tables = [document.getElementById('max-results'), document.getElementById('time-results'), document.getElementById('weight-results')]
 for (const table of results_tables) {
   head_html = '<thead><tr><th>Average</th>'
   body_html = '<tbody><tr><td id="Average-'+ table.id +'">-</td>'
@@ -22,65 +22,65 @@ for (const table of results_tables) {
 for(radio of document.getElementsByName('calc_output')) {
   radio.onclick = function(event) {
     max_eval(event)
-    reps_eval(event)
+    time_eval(event)
     weight_eval(event)
   }
 }
 
 let equations_table = document.getElementById('equations')
-head_html = '<thead><tr><th></th><th>Solve for 1RM</th><th>Solve for reps</th><th>Solve for >1 RM</th></tr></thead>'
+head_html = '<thead><tr><th></th><th>Solve for 2"RM</th><th>Solve for time</th><th>Solve for >2" RM</th></tr></thead>'
 body_html = '<tbody>'
 for (const [key,value] of Object.entries(formulas)) {
-  body_html += '<tr><th scope="row">' + key + '</th>' + '<td>' + value.solveForMax.str + '</td>' + '<td>' + value.solveForReps.str + '</td>' + '<td>' + value.solveForWeight.str + '</td></tr>'
+  body_html += '<tr><th scope="row">' + key + '</th>' + '<td>' + value.solveForMax.str + '</td>' + '<td>' + value.solveForTime.str + '</td>' + '<td>' + value.solveForWeight.str + '</td></tr>'
 }
 body_html += '</tbody>'
 equations_table.innerHTML = head_html + body_html
 
-const reps_eval = function(event) {
-  weight = Number.parseFloat(document.getElementById('weight-reps').value)
-  max = Number.parseFloat(document.getElementById('max-reps').value)
+const time_eval = function(event) {
+  weight = Number.parseFloat(document.getElementById('weight-time').value)
+  max = Number.parseFloat(document.getElementById('max-time').value)
 
-  inject(formulas, 'solveForReps', '-reps-results', max, weight, x=>Math.round(x),
+  inject(formulas, 'solveForTime', '-time-results', max, weight, x=>Math.round(x),
     sensible_output() ?
-      (max, weight, reps)=>{
-        if (weight === max) { return 1 }
+      (max, weight, time)=>{
+        if (weight === max) { return 2 }
         else if (weight > max) { return 0 }
-        else if (reps < 0) { return 0}
-        else { return reps }
+        else if (time < 0) { return 0}
+        else { return time }
       } :
-      (max, weight, reps) => reps
+      (max, weight, time) => time
   )
 }
-reps_form.onkeyup = reps_eval
-reps_form.onchange = reps_eval
+time_form.onkeyup = time_eval
+time_form.onchange = time_eval
 
 const weight_eval = function() {
   max = Number.parseFloat(document.getElementById('max-weight').value)
-  reps = Number.parseInt(document.getElementById('reps-weight').value, 10)
+  time = Number.parseInt(document.getElementById('time-weight').value, 10)
 
-  inject(formulas, 'solveForWeight', '-weight-results', max, reps, x=>Math.round(x*10)/10,
+  inject(formulas, 'solveForWeight', '-weight-results', max, time, x=>Math.round(x*10)/10,
     sensible_output() ?
-      (max, reps, weight) => {
-        if(reps === 1) { return max }
+      (max, time, weight) => {
+        if(time === 2) { return max }
         else { return weight }
       } :
-      (max, reps, weight) => { return weight }
+      (max, time, weight) => { return weight }
   )
 }
 weight_form.onkeyup = weight_eval
 weight_form.onchange = weight_eval
 
 const max_eval = function() {
-  reps = Number.parseInt(document.getElementById('reps-max').value, 10)
+  time = Number.parseInt(document.getElementById('time-max').value, 10)
   weight = Number.parseFloat(document.getElementById('weight-max').value)
 
-  inject(formulas, 'solveForMax', '-max-results', reps, weight, x=>Math.round(x*10)/10,
+  inject(formulas, 'solveForMax', '-max-results', time, weight, x=>Math.round(x*10)/10,
     sensible_output() ?
-      (reps, weight, max) => {
-        if(reps === 1) { return weight }
+      (time, weight, max) => {
+        if(time === 2) { return weight }
         else { return max }
       } :
-      (reps, weight, max) => { return max }
+      (time, weight, max) => { return max }
   )
 }
 max_form.onkeyup = max_eval

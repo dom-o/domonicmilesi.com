@@ -1,119 +1,119 @@
 const formulas = {
   Epley: {
     solveForMax: {
-      func: function(reps, weight) {
-        return weight * (1+ (reps/30))
-      }, str: '$$m=w(1+\\frac{r}{30})$$'
+      func: function(time, weight) {
+        return weight * (1+ ((time/2)/30))
+      }, str: '$$m=w\\left(1+\\frac{t\\div2}{30}\\right)$$'
     },
-    solveForReps: {
+    solveForTime: {
       func: function(max, weight) {
-        return 30 * ((max/weight) - 1)
-      }, str: '$$r=30(\\frac{m}{w} - 1)$$'
+        return (30 * ((max/weight) - 1))*2
+      }, str: '$$t= 2\\left(30\\left(\\frac{m}{w} - 1\\right)\\right)$$'
     },
     solveForWeight: {
-      func: function(max, reps) {
-        return max / (1 + (reps/30))
-      }, str: '$$w=\\frac{m}{1+\\frac{r}{30}}$$'
+      func: function(max, time) {
+        return max / (1 + ((time/2)/30))
+      }, str: '$$w=\\frac{m}{1+\\frac{t\\div2}{30}}$$'
     },
   }, Brzycki: {
     solveForMax: {
-      func: function(reps, weight) {
-        return weight * (36 / (37-reps))
-      }, str: '$$m=w(\\frac{36}{37-r})$$'
+      func: function(time, weight) {
+        return weight * (36 / (37-(time/2)))
+      }, str: '$$m=w\\left(\\frac{36}{37-\\frac{t}{2}}\\right)$$'
     },
-    solveForReps: {
+    solveForTime: {
       func: function(max, weight) {
-        return 37 - ((36*weight) / max)
-      }, str: '$$r=37-\\frac{36w}{m}$$'
+        return (37 - ((36*weight) / max))*2
+      }, str: '$$t= 2\\left(37-\\frac{36w}{m}\\right)$$'
     },
     solveForWeight: {
-      func: function(max, reps) {
-        return max * ((37-reps) / 36)
-      }, str: '$$w=m(\\frac{37-r}{36})$$'
+      func: function(max, time) {
+        return max * ((37-(time/2)) / 36)
+      }, str: '$$w=m\\left(\\frac{37-\\frac{t}{2}}{36}\\right)$$'
     },
   }, McGlothin: {
     solveForMax: {
-      func: function(reps, weight) {
-        return (100*weight) / (101.3 - (2.67123*reps))
-      }, str: '$$m=\\frac{100w}{101.3-2.67123r}$$'
+      func: function(time, weight) {
+        return (100*weight) / (101.3 - (2.67123*(time/2)))
+      }, str: '$$m=\\frac{100w}{101.3-2.67123\\frac{t}{2}}$$'
     },
-    solveForReps: {
+    solveForTime: {
       func: function(max, weight) {
-        // return ((101.3*max) - (100*weight)) / (2.67123*max)
-        return (101.3 - ((100*weight) / max)) / 2.67123
-      }, str: '$$r=\\frac{101.3-\\frac{100w}{m}}{2.67123}$$'
+        // return (((101.3*max) - (100*weight)) / (2.67123*max))*2
+        return ((101.3 - ((100*weight) / max)) / 2.67123)*2
+      }, str: '$$t= 2\\left(\\frac{101.3-\\frac{100w}{m}}{2.67123}\\right)$$'
     },
     solveForWeight: {
-      func: function(max, reps) {
-        return (max * (101.3 - (2.67123*reps)))/100
-      }, str: '$$w=m(\\frac{101.3-2.67123r}{100})$$'
+      func: function(max, time) {
+        return (max * (101.3 - (2.67123*(time/2))))/100
+      }, str: '$$w=m\\left(\\frac{101.3-2.67123\\frac{t}{2}}{100}\\right)$$'
     },
   }, Lombardi: {
     solveForMax: {
-      func: function(reps, weight) {
-        return weight * Math.pow(reps, 0.10)
-      }, str: '$$m=wr^{0.10}$$'
+      func: function(time, weight) {
+        return weight * Math.pow((time/2), 0.10)
+      }, str: '$$m=w\\left(\\frac{t}{2}\\right)^{0.10}$$'
     },
-    solveForReps: {
+    solveForTime: {
       func: function(max, weight) {
-        return Math.pow(max/weight, 1/0.10)
-      }, str: '$$r=\\sqrt[0.10]{\\frac{m}{w}}$$'
+        return (Math.pow(max/weight, 1/0.10))*2
+      }, str: '$$t= 2\\left(\\sqrt[0.10]{\\frac{m}{w}}\\right)$$'
     },
     solveForWeight: {
-      func: function(max, reps) {
-        return max / Math.pow(reps, 0.10)
-      }, str: '$$w=\\frac{m}{r^{0.10}}$$'
+      func: function(max, time) {
+        return max / Math.pow((time/2), 0.10)
+      }, str: '$$w=\\frac{m}{\\left(\\frac{t}{2}\\right)^{0.10}}$$'
     },
   }, Mayhew: {
     solveForMax: {
-      func: function(reps, weight) {
-        return (100*weight) / (52.2 + (41.9*Math.exp(-0.055*reps)))
-      }, str: '$$m=\\frac{100w}{52.2+41.9e^{-0.055r}}$$'
+      func: function(time, weight) {
+        return (100*weight) / (52.2 + (41.9*Math.exp(-0.055*(time/2))))
+      }, str: '$$m=\\frac{100w}{52.2+41.9e^{-0.055\\frac{t}{2}}}$$'
     },
-    solveForReps: {
+    solveForTime: {
       func: function(max, weight) {
-        // return Math.log(((100*weight)-(52.2*max)) / (41.9*max)) / -0.055
-        return Math.log((((100*weight)/max) - 52.2) / 41.9) / -0.055
-      }, str: '$$r={\\ln({\\frac{\\frac{100w}{m}-52.2}{41.9}}})\\div{-0.055}$$'
+        // return (Math.log(((100*weight)-(52.2*max)) / (41.9*max)) / -0.055)*2
+        return (Math.log((((100*weight)/max) - 52.2) / 41.9) / -0.055)*2
+      }, str: '$$t= 2\\left(\\frac{\\ln\\left(\\frac{\\frac{100w}{m}-52.2}{41.9}\\right)}{-0.055}\\right)$$'
     },
     solveForWeight: {
-      func: function(max, reps) {
-        return (max * (52.2 + (41.9*Math.exp(-0.055*reps)))) / 100
-      }, str: '$$w=\\frac{m(52.2+41.9e^{-0.055r})}{100}$$'
+      func: function(max, time) {
+        return (max * (52.2 + (41.9*Math.exp(-0.055*(time/2))))) / 100
+      }, str: '$$w=\\frac{m\\left(52.2+41.9e^{-0.055\\frac{t}{2}}\\right)}{100}$$'
     },
   }, "O'Conner": {
     solveForMax: {
-      func: function(reps, weight) {
-        return weight * (1+(reps/40))
-      }, str: '$$m=w(1+\\frac{r}{40})$$'
+      func: function(time, weight) {
+        return weight * (1+((time/2)/40))
+      }, str: '$$m=w\\left(1+\\frac{t\\div2}{40}\\right)$$'
     },
-    solveForReps: {
+    solveForTime: {
       func: function(max, weight) {
-        return 40 * ((max/weight) - 1)
-      }, str: '$$r=40(\\frac{m}{w}-1)$$'
+        return (40 * ((max/weight) - 1))*2
+      }, str: '$$t= 2\\left(40\\left(\\frac{m}{w}-1\\right)\\right)$$'
     },
     solveForWeight: {
-      func: function(max, reps) {
-        // return (40*max) / (40+reps)
-        return max / (1+(reps/40))
-      }, str: '$$w=\\frac{m}{1+\\frac{r}{40}}$$'
+      func: function(max, time) {
+        // return (40*max) / (40+(time/2))
+        return max / (1+((time/2)/40))
+      }, str: '$$w=\\frac{m}{1+\\frac{t\\div2}{40}}$$'
     },
   }, Wathen: {
     solveForMax: {
-      func: function(reps, weight) {
-        return (100*weight) / (48.8 + (53.8*Math.exp(-0.075*reps)))
-      }, str: '$$m=\\frac{100w}{48.8+53.8e^{-0.075r}}$$'
+      func: function(time, weight) {
+        return (100*weight) / (48.8 + (53.8*Math.exp(-0.075*(time/2))))
+      }, str: '$$m=\\frac{100w}{48.8+53.8e^{-0.075\\frac{t}{2}}}$$'
     },
-    solveForReps: {
+    solveForTime: {
       func: function(max, weight) {
-        // return Math.log(((100*weight) - (48.8*max)) / (53.8*max)) / -0.075
-        return Math.log((((100*weight)/max) - 48.8) / 53.8) / -0.075
-      }, str: '$$r={\\ln({\\frac{\\frac{100w}{m}-48.8}{53.8}})}\\div{-0.075}$$'
+        // return (Math.log(((100*weight) - (48.8*max)) / (53.8*max)) / -0.075)*2
+        return (Math.log((((100*weight)/max) - 48.8) / 53.8) / -0.075)*2
+      }, str: '$$t= 2\\left(\\frac{\\ln\\left(\\frac{\\frac{100w}{m}-48.8}{53.8}\\right)}{-0.075}\\right)$$'
     },
     solveForWeight: {
-      func: function(max, reps) {
-        return (max * (48.8 + (53.8 * Math.exp(-0.075*reps)))) / 100
-      }, str: '$$w=\\frac{m(48.8+53.8e^{-0.075r})}{100}$$'
+      func: function(max, time) {
+        return (max * (48.8 + (53.8 * Math.exp(-0.075*(time/2))))) / 100
+      }, str: '$$w=\\frac{m\\left(48.8+53.8e^{-0.075\\frac{t}{2}}\\right)}{100}$$'
     },
   }
 }
