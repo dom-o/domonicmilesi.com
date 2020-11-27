@@ -19,7 +19,6 @@
         }
       }
     },
-    { "metalsmith-nestedlayouts": {} },
-    { "metalsmith-html-glob": {} }
+    { "metalsmith-nestedlayouts": {} }
   ]
 }

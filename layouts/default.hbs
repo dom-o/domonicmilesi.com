@@ -10,7 +10,7 @@
 
     <meta charset="utf-8">
     <meta name="author" content="Domonic Milesi" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="{{rootPath}}favicon.png">
     <link rel="stylesheet" href="{{rootPath}}css/style.css" />
@@ -18,13 +18,8 @@
     <link rel="stylesheet" href="{{rootPath}}css/style-sidebar.css"/>
     {{/if }}
 
-    <!-- link js here -->
-    {{#if js_dir }}
-    <script defer src="{{rootPath}}js/{{js_dir}}/**/*.js"></script>
-    {{/if}}
-
-    {{#if custom_style }}
-      <link rel="stylesheet" href="{{rootPath}}css/{{custom_style}}" />
+    {{#if custom_head}}
+      {{> (lookup . 'custom_head') }}
     {{/if}}
   </head>
 
