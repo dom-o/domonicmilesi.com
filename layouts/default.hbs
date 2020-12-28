@@ -25,11 +25,14 @@
 
   <body>
     {{#if sidebar }}
-    {{> sidebar }}
+    {{> header }}
     {{/if}}
     <main class="content container">
       {{{contents}}}
     </main>
+    {{#if sidebar }}
+    {{> sidebar }}
+    {{/if}}
     {{#unless sidebar }}
       <footer style="position:absolute; bottom:0; width:100%; padding:1rem 2rem; margin-top:2rem; background-color:black; color:#fff;">
         <small>Made by </small><a style="color:#FFDC00;" href="https://domonicmilesi.com/">Domonic Milesi</a>
