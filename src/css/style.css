@@ -21,15 +21,29 @@ body {
 }
 
 a {
-  color: #FFDC00;
-  text-decoration: underline;
+  font-weight: bold;
+  text-decoration: none;
+}
+.content a:link {
+  color: #0095F8;
+  border-bottom: .1em solid;
+  background-color: #222;
+}
+.content a:visited {
+  color: #8383FF;
+}
+.content a:hover, .content a:active {
+  color: #222;
+  background-color: #0095F8;
+}
+.content a:visited:hover, .content a:visited:active {
+  background-color: #8383FF;
 }
 
 p {
   margin-top: 0;
   margin-bottom: 1rem;
 }
-
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: .5rem;
   font-weight: bold;
@@ -50,12 +64,10 @@ h4, h5, h6 {
   margin-top: 1rem;
   font-size: 1rem;
 }
-
 ul, ol, dl {
   margin-top: 0;
   margin-bottom: 1rem;
 }
-
 blockquote {
   padding: .5rem 1rem;
   margin: .8rem 0;
@@ -68,15 +80,9 @@ blockquote p:last-child {
 
 .container {
   max-width: 45rem;
-  padding-left:  2rem;
-  padding-right: 2rem;
+  padding: 1.5rem 2rem 4rem 2rem;
   margin-left:  auto;
   margin-right: auto;
-}
-
-.content {
-  padding-top:    2rem;
-  padding-bottom: 4rem;
 }
 .content > :first-child {
   margin-top: 0rem;

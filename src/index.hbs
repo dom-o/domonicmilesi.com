@@ -2,7 +2,7 @@
 layout: default.hbs
 sidebar: true
 ---
-<ul>
+<ul style="padding-left:0;">
 {{#each pages}}
   <li><a href="{{ this.url }}">{{ this.title }}</a> - {{ moment this.date 'MMMM d, YYYY' }}</li>
 {{/each}}
