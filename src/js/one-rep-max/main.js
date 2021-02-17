@@ -6,19 +6,6 @@ const sensible_output = function() {
 }
 var reps, max, weight, avg, length, head_html, body_html
 
-let results_tables = [document.getElementById('max-results'), document.getElementById('reps-results'), document.getElementById('weight-results')]
-for (const table of results_tables) {
-  head_html = '<thead><tr><th>Average</th>'
-  body_html = '<tbody><tr><td id="Average-'+ table.id +'">-</td>'
-  for (key of Object.keys(formulas)) {
-    head_html += '<th>' + key + '</th>'
-    body_html += '<td id="' + key+'-'+table.id + '">-</td>'
-  }
-  head_html += '</tr></thead>'
-  body_html += '</tr></tbody>'
-  table.innerHTML = head_html + body_html
-}
-
 for(radio of document.getElementsByName('calc_output')) {
   radio.onclick = function(event) {
     max_eval(event)
@@ -26,15 +13,6 @@ for(radio of document.getElementsByName('calc_output')) {
     weight_eval(event)
   }
 }
-
-let equations_table = document.getElementById('equations')
-// head_html = '<thead><tr><th></th><th>Solve for 1RM</th><th>Solve for reps</th><th>Solve for >1 RM</th></tr></thead>'
-body_html = ""//'<tbody>'
-for (const [key,value] of Object.entries(formulas)) {
-  body_html += '<tr><th scope="row">' + key + '</th>' + '<td>' + value.solveForMax.str + '</td>' + '<td>' + value.solveForReps.str + '</td>' + '<td>' + value.solveForWeight.str + '</td></tr>'
-}
-// body_html += '</tbody>'
-equations_table.innerHTML = body_html//head_html + body_html
 
 const reps_eval = function(event) {
   weight = Number.parseFloat(document.getElementById('weight-reps').value)
