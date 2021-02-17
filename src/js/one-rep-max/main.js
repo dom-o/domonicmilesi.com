@@ -1,10 +1,6 @@
-const reps_form = document.getElementById('solve-for-reps')
-const weight_form = document.getElementById('solve-for-weight')
-const max_form = document.getElementById('solve-for-max')
 const sensible_output = function() {
   return document.getElementById('sensible').checked && !document.getElementById('raw').checked
 }
-var reps, max, weight, avg, length, head_html, body_html
 
 for(radio of document.getElementsByName('calc_output')) {
   radio.onclick = function(event) {
@@ -18,70 +14,77 @@ const reps_eval = function(event) {
   weight = Number.parseFloat(document.getElementById('weight-reps').value)
   max = Number.parseFloat(document.getElementById('max-reps').value)
 
-  inject(formulas, 'solveForReps', '-reps-results', max, weight, x=>Math.round(x),
-    sensible_output() ?
-      (max, weight, reps)=>{
-        if (weight === max) { return 1 }
-        else if (weight > max) { return 0 }
-        else if (reps < 0) { return 0}
-        else { return reps }
-      } :
-      (max, weight, reps) => reps
-  )
+  if(Number.isNaN(weight) || Number.isNaN(max)) {
+    updateTable('-reps-results', '-')
+  } else {
+    var sense = sensible_output()
+    if(sense && weight == max) { updateTable('-reps-results', 1) }
+    else if (sense && weight > max) { updateTable('-reps-results', 0) }
+    else {
+      inject('solveForReps', '-reps-results', [max, weight], x=>Math.round(x), sense)
+    }
+  }
 }
-reps_form.onkeyup = reps_eval
-reps_form.onchange = reps_eval
+document.getElementById('solve-for-reps').onkeyup = reps_eval
+document.getElementById('solve-for-reps').onchange = reps_eval
 
 const weight_eval = function() {
   max = Number.parseFloat(document.getElementById('max-weight').value)
   reps = Number.parseInt(document.getElementById('reps-weight').value, 10)
 
-  inject(formulas, 'solveForWeight', '-weight-results', max, reps, x=>Math.round(x*10)/10,
-    sensible_output() ?
-      (max, reps, weight) => {
-        if(reps === 1) { return max }
-        else { return weight }
-      } :
-      (max, reps, weight) => { return weight }
-  )
+  if(Number.isNaN(max) || Number.isNaN(reps)) {
+    updateTable('-weight-results', '-')
+  } else {
+    var sense = sensible_output()
+    if(sense && reps == 1) { updateTable('-weight-results', max) }
+    else {
+      inject('solveForWeight', '-weight-results', [max, reps], x=>Math.round(x*10)/10)
+    }
+  }
 }
-weight_form.onkeyup = weight_eval
-weight_form.onchange = weight_eval
+document.getElementById('solve-for-weight').onkeyup = weight_eval
+document.getElementById('solve-for-weight').onchange = weight_eval
 
 const max_eval = function() {
   reps = Number.parseInt(document.getElementById('reps-max').value, 10)
   weight = Number.parseFloat(document.getElementById('weight-max').value)
 
-  inject(formulas, 'solveForMax', '-max-results', reps, weight, x=>Math.round(x*10)/10,
-    sensible_output() ?
-      (reps, weight, max) => {
-        if(reps === 1) { return weight }
-        else { return max }
-      } :
-      (reps, weight, max) => { return max }
-  )
-}
-max_form.onkeyup = max_eval
-max_form.onchange = max_eval
-
-function inject(formulas, solveFunction, elementSuffix, in1, in2, roundFunction, regulateFunction) {
-  let avg = 0, length=0, out
-
-  if(Number.isNaN(in1) || Number.isNaN(in2)) {
-    for (const [key,value] of Object.entries(formulas)) {
-      document.getElementById(key+elementSuffix).innerText = '-'
-    }
-    document.getElementById('Average'+elementSuffix).innerText = '-'
+  if(Number.isNaN(reps) || Number.isNaN(weight)) {
+    updateTable('-max-results', '-')
   } else {
-    for (const [key,value] of Object.entries(formulas)) {
-      out = value[solveFunction].func(in1, in2)
-      out = regulateFunction(in1, in2, out)
-      if(!Number.isNaN(out)) {
-        avg += out
-        length ++
-      }
-      document.getElementById(key+elementSuffix).innerText = roundFunction(out)
+    var sense = sensible_output()
+    if (sense && reps == 1) { updateTable('-max-results', weight) }
+    else {
+      inject('solveForMax', '-max-results', [reps, weight], x=>Math.round(x*10)/10)
     }
-    document.getElementById('Average'+elementSuffix).innerText = roundFunction(avg/length)
   }
+}
+document.getElementById('solve-for-max').onkeyup = max_eval
+document.getElementById('solve-for-max').onchange = max_eval
+
+setTimeout(function() {
+  reps_eval()
+  weight_eval()
+  max_eval()
+}, 200)
+
+function updateTable(elSuffix, message) {
+  for (const el in formulas) {
+    document.getElementById(el+elSuffix).innerText = message
+  }
+  document.getElementById('Average'+elSuffix).innerText = message
+}
+
+function inject(solveFunction, elementSuffix, params, roundFunction, sensible) {
+  var avg= 0, length= 0
+  for (const el in formulas) {
+    var out = roundFunction(formulas[el][solveFunction](...params))
+    if (sensible && out<0) { out= 0 }
+    if(!Number.isNaN(out)) {
+      avg+= out
+      length++
+    }
+    document.getElementById(el+elementSuffix).innerText = out
+  }
+  document.getElementById('Average'+elementSuffix).innerText = roundFunction(avg/length)
 }
