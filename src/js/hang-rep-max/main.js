@@ -1,22 +1,7 @@
-const time_form = document.getElementById('solve-for-time')
-const weight_form = document.getElementById('solve-for-weight')
-const max_form = document.getElementById('solve-for-max')
+const sensible_checkbox = document.getElementById('sensible')
+const raw_checkbox = document.getElementById('raw')
 const sensible_output = function() {
-  return document.getElementById('sensible').checked && !document.getElementById('raw').checked
-}
-var time, max, weight, avg, length, head_html, body_html
-
-let results_tables = [document.getElementById('max-results'), document.getElementById('time-results'), document.getElementById('weight-results')]
-for (const table of results_tables) {
-  head_html = '<thead><tr><th>Average</th>'
-  body_html = '<tbody><tr><td id="Average-'+ table.id +'">-</td>'
-  for (key of Object.keys(formulas)) {
-    head_html += '<th>' + key + '</th>'
-    body_html += '<td id="' + key+'-'+table.id + '">-</td>'
-  }
-  head_html += '</tr></thead>'
-  body_html += '</tr></tbody>'
-  table.innerHTML = head_html + body_html
+  return sensible_checkbox.checked && !raw_checkbox.checked
 }
 
 for(radio of document.getElementsByName('calc_output')) {
@@ -27,83 +12,164 @@ for(radio of document.getElementsByName('calc_output')) {
   }
 }
 
-let equations_table = document.getElementById('equations')
-// head_html = '<thead><tr><th></th><th>Solve for 2"RM</th><th>Solve for time</th><th>Solve for >2" RM</th></tr></thead>'
-body_html = ""//'<tbody>'
-for (const [key,value] of Object.entries(formulas)) {
-  body_html += '<tr><th scope="row">' + key + '</th>' + '<td>' + value.solveForMax.str + '</td>' + '<td>' + value.solveForTime.str + '</td>' + '<td>' + value.solveForWeight.str + '</td></tr>'
-}
-// body_html += '</tbody>'
-equations_table.innerHTML = body_html//head_html + body_html
-
 const time_eval = function(event) {
-  weight = Number.parseFloat(document.getElementById('weight-time').value)
-  max = Number.parseFloat(document.getElementById('max-time').value)
+  var weight = Number.parseFloat(document.getElementById('weight-time').value)
+  var max = Number.parseFloat(document.getElementById('max-time').value)
 
-  inject(formulas, 'solveForTime', '-time-results', max, weight, x=>Math.round(x),
-    sensible_output() ?
-      (max, weight, time)=>{
-        if (weight === max) { return 2 }
-        else if (weight > max) { return 0 }
-        else if (time < 0) { return 0}
-        else { return time }
-      } :
-      (max, weight, time) => time
-  )
+  if(Number.isNaN(weight) || Number.isNaN(max)) {
+    updateTable('-time-results', '-')
+  } else {
+    var sense = sensible_output()
+    if(sense && weight == max) {
+      updateTable('-time-results', 2)
+    } else if (sense && weight > max) {
+      updateTable('-time-results', 0)
+    } else {
+      inject('solveForTime', '-time-results', [max, weight], x=>Math.round(x), sense)
+      var avg = 0, length = 0
+    }
+  }
 }
-time_form.onkeyup = time_eval
-time_form.onchange = time_eval
+document.getElementById('solve-for-time').onkeyup = time_eval
+document.getElementById('solve-for-time').onchange = time_eval
 
 const weight_eval = function() {
-  max = Number.parseFloat(document.getElementById('max-weight').value)
-  time = Number.parseInt(document.getElementById('time-weight').value, 10)
+  var max = Number.parseFloat(document.getElementById('max-weight').value)
+  var time = Number.parseInt(document.getElementById('time-weight').value, 10)
 
-  inject(formulas, 'solveForWeight', '-weight-results', max, time, x=>Math.round(x*10)/10,
-    sensible_output() ?
-      (max, time, weight) => {
-        if(time === 2) { return max }
-        else { return weight }
-      } :
-      (max, time, weight) => { return weight }
-  )
+  if(Number.isNaN(max) || Number.isNaN(time)) {
+    updateTable('-weight-results', '-')
+  } else {
+    var sense = sensible_output()
+    if(sense && time == 2) {
+      updateTable('-weight-results', max)
+    } else {
+      inject('solveForWeight', '-weight-results', [max, time], x => Math.round(x*10)/10, sense)
+    }
+  }
 }
-weight_form.onkeyup = weight_eval
-weight_form.onchange = weight_eval
+document.getElementById('solve-for-weight').onkeyup = weight_eval
+document.getElementById('solve-for-weight').onchange = weight_eval
 
 const max_eval = function() {
-  time = Number.parseInt(document.getElementById('time-max').value, 10)
-  weight = Number.parseFloat(document.getElementById('weight-max').value)
+  var time = Number.parseInt(document.getElementById('time-max').value, 10)
+  var weight = Number.parseFloat(document.getElementById('weight-max').value)
 
-  inject(formulas, 'solveForMax', '-max-results', time, weight, x=>Math.round(x*10)/10,
-    sensible_output() ?
-      (time, weight, max) => {
-        if(time === 2) { return weight }
-        else { return max }
-      } :
-      (time, weight, max) => { return max }
-  )
-}
-max_form.onkeyup = max_eval
-max_form.onchange = max_eval
-
-function inject(formulas, solveFunction, elementSuffix, in1, in2, roundFunction, regulateFunction) {
-  let avg = 0, length=0, out
-
-  if(Number.isNaN(in1) || Number.isNaN(in2)) {
-    for (const [key,value] of Object.entries(formulas)) {
-      document.getElementById(key+elementSuffix).innerText = '-'
-    }
-    document.getElementById('Average'+elementSuffix).innerText = '-'
+  if(Number.isNaN(time) || Number.isNaN(weight)) {
+    updateTable('-max-results', '-')
   } else {
-    for (const [key,value] of Object.entries(formulas)) {
-      out = value[solveFunction].func(in1, in2)
-      out = regulateFunction(in1, in2, out)
-      if(!Number.isNaN(out)) {
-        avg += out
-        length ++
-      }
-      document.getElementById(key+elementSuffix).innerText = roundFunction(out)
+    var sense = sensible_output()
+    if(sense && time == 2) {
+      updateTable('-max-results', weight)
+    } else {
+      inject('solveForMax', '-max-results', [time, weight], x=>Math.round(x*10)/10, sense)
     }
-    document.getElementById('Average'+elementSuffix).innerText = roundFunction(avg/length)
   }
+}
+document.getElementById('solve-for-max').onkeyup = max_eval
+document.getElementById('solve-for-max').onchange = max_eval
+
+const timeno2rm_eval = function() {
+  var init_time = Number.parseInt(document.getElementById('init-time-timeno2rm').value, 10)
+  var init_weight = Number.parseFloat(document.getElementById('init-weight-timeno2rm').value)
+  var target_weight = Number.parseFloat(document.getElementById('target-weight-timeno2rm').value)
+
+  if(Number.isNaN(init_time) || Number.isNaN(init_weight) || Number.isNaN(target_weight)) {
+    updateTable('-timeno2rm-results', '-')
+  } else {
+    var sense = sensible_output()
+    if(sense && init_weight == target_weight) {
+      updateTable('-timeno2rm-results', init_time)
+    } else {
+      var avg = 0, length= 0
+      for(const el in formulas) {
+        var out= (sense && init_time==2) ? init_weight : formulas[el].solveForMax(init_time, init_weight)
+        if(sense && out < 0) { out=0 }
+        if(!Number.isNaN(out)) {
+          if(sense && target_weight == out) {
+            document.getElementById(el+'-timeno2rm-results').innerText = 2
+            avg+= 2
+            length++
+          } else if (sense && target_weight > out) {
+            document.getElementById(el+'-timeno2rm-results').innerText = 0
+            avg+= 0
+            length++
+          } else {
+            out= Math.round(formulas[el].solveForTime(out, target_weight))
+            if (sense && out < 0) { out=0 }
+            if(!Number.isNaN(out)) {
+              avg+= out
+              length++
+            }
+          }
+        }
+        document.getElementById(el+'-timeno2rm-results').innerText = out
+      }
+      document.getElementById('Average-timeno2rm-results').innerText = Math.round(avg/length)
+    }
+  }
+}
+document.getElementById('solve-for-timeno2rm').onkeyup = timeno2rm_eval
+document.getElementById('solve-for-timeno2rm').onchange = timeno2rm_eval
+
+const weightno2rm_eval = function() {
+  var init_time = Number.parseInt(document.getElementById('init-time-weightno2rm').value, 10)
+  var init_weight = Number.parseFloat(document.getElementById('init-weight-weightno2rm').value)
+  var target_time = Number.parseInt(document.getElementById('target-time-weightno2rm').value, 10)
+
+  if(Number.isNaN(init_time) || Number.isNaN(init_weight) || Number.isNaN(target_time)) {
+    updateTable('-weightno2rm-results', '-')
+  } else {
+    var sense = sensible_output()
+    if(sense && init_time == target_time) {
+      updateTable('-weightno2rm-results', init_weight)
+    } else {
+      var avg= 0, length= 0
+      for (const el in formulas) {
+        var out = (sense && init_time ==2) ? init_weight : formulas[el].solveForMax(init_time, init_weight)
+        if (sense && out < 0) { out=0 }
+        if(!Number.isNaN(out)) {
+          out= Math.round(formulas[el].solveForWeight(out, target_time)*10)/10
+          if (sense && out< 0) { out=0 }
+          if(!Number.isNaN(out)) {
+            avg+= out
+            length++
+          }
+        }
+        document.getElementById(el+'-weightno2rm-results').innerText = out
+      }
+      document.getElementById('Average-weightno2rm-results').innerText = Math.round((avg/length)*10)/10
+    }
+  }
+}
+document.getElementById('solve-for-weightno2rm').onkeyup = weightno2rm_eval
+document.getElementById('solve-for-weightno2rm').onchange = weightno2rm_eval
+
+setTimeout(function() {
+  time_eval()
+  max_eval()
+  weight_eval()
+  timeno2rm_eval()
+  weightno2rm_eval()
+}, 200)
+
+function updateTable(elSuffix, message) {
+  for (const el in formulas) {
+    document.getElementById(el+elSuffix).innerText = message
+  }
+  document.getElementById('Average'+elSuffix).innerText = message
+}
+
+function inject(solveFunction, elementSuffix, params, roundFunction, sensible) {
+  var avg= 0, length= 0
+  for (const el in formulas) {
+    var out = roundFunction(formulas[el][solveFunction](...params))
+    if (sensible && out<0) { out= 0 }
+    if(!Number.isNaN(out)) {
+      avg+= out
+      length++
+    }
+    document.getElementById(el+elementSuffix).innerText = out
+  }
+  document.getElementById('Average'+elementSuffix).innerText = roundFunction(avg/length)
 }
