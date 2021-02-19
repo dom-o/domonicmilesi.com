@@ -13,20 +13,19 @@ for(radio of document.getElementsByName('calc_output')) {
 }
 
 const time_eval = function(event) {
-  var weight = Number.parseFloat(document.getElementById('weight-time').value)
-  var max = Number.parseFloat(document.getElementById('max-time').value)
+  const weight = Number.parseFloat(document.getElementById('weight-time').value)
+  const max = Number.parseFloat(document.getElementById('max-time').value)
 
   if(Number.isNaN(weight) || Number.isNaN(max)) {
     updateTable('-time-results', '-')
   } else {
-    var sense = sensible_output()
+    const sense = sensible_output()
     if(sense && weight == max) {
       updateTable('-time-results', 2)
     } else if (sense && weight > max) {
       updateTable('-time-results', 0)
     } else {
       inject('solveForTime', '-time-results', [max, weight], x=>Math.round(x), sense)
-      var avg = 0, length = 0
     }
   }
 }
@@ -34,13 +33,13 @@ document.getElementById('solve-for-time').onkeyup = time_eval
 document.getElementById('solve-for-time').onchange = time_eval
 
 const weight_eval = function() {
-  var max = Number.parseFloat(document.getElementById('max-weight').value)
-  var time = Number.parseInt(document.getElementById('time-weight').value, 10)
+  const max = Number.parseFloat(document.getElementById('max-weight').value)
+  const time = Number.parseInt(document.getElementById('time-weight').value, 10)
 
   if(Number.isNaN(max) || Number.isNaN(time)) {
     updateTable('-weight-results', '-')
   } else {
-    var sense = sensible_output()
+    const sense = sensible_output()
     if(sense && time == 2) {
       updateTable('-weight-results', max)
     } else {
@@ -52,13 +51,13 @@ document.getElementById('solve-for-weight').onkeyup = weight_eval
 document.getElementById('solve-for-weight').onchange = weight_eval
 
 const max_eval = function() {
-  var time = Number.parseInt(document.getElementById('time-max').value, 10)
-  var weight = Number.parseFloat(document.getElementById('weight-max').value)
+  const time = Number.parseInt(document.getElementById('time-max').value, 10)
+  const weight = Number.parseFloat(document.getElementById('weight-max').value)
 
   if(Number.isNaN(time) || Number.isNaN(weight)) {
     updateTable('-max-results', '-')
   } else {
-    var sense = sensible_output()
+    const sense = sensible_output()
     if(sense && time == 2) {
       updateTable('-max-results', weight)
     } else {
@@ -70,14 +69,14 @@ document.getElementById('solve-for-max').onkeyup = max_eval
 document.getElementById('solve-for-max').onchange = max_eval
 
 const timeno2rm_eval = function() {
-  var init_time = Number.parseInt(document.getElementById('init-time-timeno2rm').value, 10)
-  var init_weight = Number.parseFloat(document.getElementById('init-weight-timeno2rm').value)
-  var target_weight = Number.parseFloat(document.getElementById('target-weight-timeno2rm').value)
+  const init_time = Number.parseInt(document.getElementById('init-time-timeno2rm').value, 10)
+  const init_weight = Number.parseFloat(document.getElementById('init-weight-timeno2rm').value)
+  const target_weight = Number.parseFloat(document.getElementById('target-weight-timeno2rm').value)
 
   if(Number.isNaN(init_time) || Number.isNaN(init_weight) || Number.isNaN(target_weight)) {
     updateTable('-timeno2rm-results', '-')
   } else {
-    var sense = sensible_output()
+    const sense = sensible_output()
     if(sense && init_weight == target_weight) {
       updateTable('-timeno2rm-results', init_time)
     } else {
@@ -92,7 +91,6 @@ const timeno2rm_eval = function() {
             length++
           } else if (sense && target_weight > out) {
             document.getElementById(el+'-timeno2rm-results').innerText = 0
-            avg+= 0
             length++
           } else {
             out= Math.round(formulas[el].solveForTime(out, target_weight))
@@ -101,9 +99,11 @@ const timeno2rm_eval = function() {
               avg+= out
               length++
             }
+            document.getElementById(el+'-timeno2rm-results').innerText = out
           }
+        } else {
+          document.getElementById(el+'-timeno2rm-results').innerText = out
         }
-        document.getElementById(el+'-timeno2rm-results').innerText = out
       }
       document.getElementById('Average-timeno2rm-results').innerText = Math.round(avg/length)
     }
@@ -113,14 +113,14 @@ document.getElementById('solve-for-timeno2rm').onkeyup = timeno2rm_eval
 document.getElementById('solve-for-timeno2rm').onchange = timeno2rm_eval
 
 const weightno2rm_eval = function() {
-  var init_time = Number.parseInt(document.getElementById('init-time-weightno2rm').value, 10)
-  var init_weight = Number.parseFloat(document.getElementById('init-weight-weightno2rm').value)
-  var target_time = Number.parseInt(document.getElementById('target-time-weightno2rm').value, 10)
+  const init_time = Number.parseInt(document.getElementById('init-time-weightno2rm').value, 10)
+  const init_weight = Number.parseFloat(document.getElementById('init-weight-weightno2rm').value)
+  const target_time = Number.parseInt(document.getElementById('target-time-weightno2rm').value, 10)
 
   if(Number.isNaN(init_time) || Number.isNaN(init_weight) || Number.isNaN(target_time)) {
     updateTable('-weightno2rm-results', '-')
   } else {
-    var sense = sensible_output()
+    const sense = sensible_output()
     if(sense && init_time == target_time) {
       updateTable('-weightno2rm-results', init_weight)
     } else {
@@ -129,7 +129,7 @@ const weightno2rm_eval = function() {
         var out = (sense && init_time ==2) ? init_weight : formulas[el].solveForMax(init_time, init_weight)
         if (sense && out < 0) { out=0 }
         if(!Number.isNaN(out)) {
-          out= Math.round(formulas[el].solveForWeight(out, target_time)*10)/10
+          out= (sense && target_time == 2) ? Math.round(out*10)/10 : Math.round(formulas[el].solveForWeight(out, target_time)*10)/10
           if (sense && out< 0) { out=0 }
           if(!Number.isNaN(out)) {
             avg+= out
@@ -163,7 +163,7 @@ function updateTable(elSuffix, message) {
 function inject(solveFunction, elementSuffix, params, roundFunction, sensible) {
   var avg= 0, length= 0
   for (const el in formulas) {
-    var out = roundFunction(formulas[el][solveFunction](...params))
+    const out = roundFunction(formulas[el][solveFunction](...params))
     if (sensible && out<0) { out= 0 }
     if(!Number.isNaN(out)) {
       avg+= out
