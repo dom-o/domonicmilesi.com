@@ -19,10 +19,10 @@ custom_head: one-rep-max
 </ul>
 <input type="radio" id="sensible" name="calc_output" value="sensible" checked><label for="sensible">sensible outputs</label>
 <input type="radio" id="raw" name="calc_output" value="raw"><label for="raw">raw outputs</label>
-<form id="solve-for-max">
+<div id="solve-for-max">
   <h3>What is my 1RM if I do
-  <input type="number" min="0" step="any" required id="weight-max">
-   for
+  <input type="number" min="0" step="any" id="weight-max">
+  for
   <select type="number" id="reps-max">
     <option value="1">1</option>
     <option value="2">2</option>
@@ -36,23 +36,23 @@ custom_head: one-rep-max
     <option value="10">10</option>
   </select>
   reps?</h3>
-</form>
+</div>
 <div class="table-container">
   <table id="max-results"><thead><tr><th>Average</th><th>Epley</th><th>Brzycki</th><th>McGlothin</th><th>Lombardi</th><th>Mayhew</th><th>O'Conner</th><th>Wathen</th></tr></thead><tbody><tr><td id="Average-max-results">-</td><td id="Epley-max-results">-</td><td id="Brzycki-max-results">-</td><td id="McGlothin-max-results">-</td><td id="Lombardi-max-results">-</td><td id="Mayhew-max-results">-</td><td id="O'Conner-max-results">-</td><td id="Wathen-max-results">-</td></tr></tbody></table>
 </div>
 
-<form id="solve-for-reps"><h3>If my 1RM is
-  <input type="number" min="0" step="any" required id="max-reps">
+<div id="solve-for-reps"><h3>If my 1RM is
+  <input type="number" min="0" step="any" id="max-reps">
   how many reps can I do with
-  <input type="number" min="0" step="any" required id="weight-reps">?</h3>
-</form>
+  <input type="number" min="0" step="any" id="weight-reps">?</h3>
+</div>
 <div class="table-container">
   <table id="reps-results"><thead><tr><th>Average</th><th>Epley</th><th>Brzycki</th><th>McGlothin</th><th>Lombardi</th><th>Mayhew</th><th>O'Conner</th><th>Wathen</th></tr></thead><tbody><tr><td id="Average-reps-results">-</td><td id="Epley-reps-results">-</td><td id="Brzycki-reps-results">-</td><td id="McGlothin-reps-results">-</td><td id="Lombardi-reps-results">-</td><td id="Mayhew-reps-results">-</td><td id="O'Conner-reps-results">-</td><td id="Wathen-reps-results">-</td></tr></tbody></table>
 </div>
 
-<form id="solve-for-weight">
+<div id="solve-for-weight">
   <h3>If my 1RM is
-  <input type="number" min="0" step="any" required id="max-weight">
+  <input type="number" min="0" step="any" id="max-weight">
   what is my
   <select id="reps-weight">
     <option value="2">2</option>
@@ -65,9 +65,58 @@ custom_head: one-rep-max
     <option value="9">9</option>
     <option value="10">10</option>
   </select> rep max?</h3>
-</form>
+</div>
 <div class="table-container">
   <table id="weight-results"><thead><tr><th>Average</th><th>Epley</th><th>Brzycki</th><th>McGlothin</th><th>Lombardi</th><th>Mayhew</th><th>O'Conner</th><th>Wathen</th></tr></thead><tbody><tr><td id="Average-weight-results">-</td><td id="Epley-weight-results">-</td><td id="Brzycki-weight-results">-</td><td id="McGlothin-weight-results">-</td><td id="Lombardi-weight-results">-</td><td id="Mayhew-weight-results">-</td><td id="O'Conner-weight-results">-</td><td id="Wathen-weight-results">-</td></tr></tbody></table>
+</div>
+
+<div id="solve-for-weightno1rm">
+  <h3>If I do <select id="init-reps-weightno1rm">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+  </select> reps with <input type="Number" min="0" step="any" id="init-weight-weightno1rm"> weight, how many reps can I do with <input type="Number" min="0" step="any"  id="target-weight-weightno1rm"> weight?</h3>
+</div>
+<div class="table-container">
+  <table id="weightno1rm-results"><thead><tr><th>Average</th><th>Epley</th><th>Brzycki</th><th>McGlothin</th><th>Lombardi</th><th>Mayhew</th><th>O'Conner</th><th>Wathen</th></tr></thead><tbody><tr><td id="Average-weightno1rm-results">-</td><td id="Epley-weightno1rm-results">-</td><td id="Brzycki-weightno1rm-results">-</td><td id="McGlothin-weightno1rm-results">-</td><td id="Lombardi-weightno1rm-results">-</td><td id="Mayhew-weightno1rm-results">-</td><td id="O'Conner-weightno1rm-results">-</td><td id="Wathen-weightno1rm-results">-</td></tr></tbody></table>
+</div>
+
+<div id="solve-for-repsno1rm">
+  <h3>If I do <input type="Number" min="0" step="any" id="init-weight-repsno1rm"> weight for
+    <select id="init-reps-repsno1rm">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+    </select> reps, how much weight can I do for <select id="target-reps-repsno1rm">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+  </select> reps?
+  </h3>
+</div>
+<div class="table-container">
+  <table id="repsno1rm-results"><thead><tr><th>Average</th><th>Epley</th><th>Brzycki</th><th>McGlothin</th><th>Lombardi</th><th>Mayhew</th><th>O'Conner</th><th>Wathen</th></tr></thead><tbody><tr><td id="Average-repsno1rm-results">-</td><td id="Epley-repsno1rm-results">-</td><td id="Brzycki-repsno1rm-results">-</td><td id="McGlothin-repsno1rm-results">-</td><td id="Lombardi-repsno1rm-results">-</td><td id="Mayhew-repsno1rm-results">-</td><td id="O'Conner-repsno1rm-results">-</td><td id="Wathen-repsno1rm-results">-</td></tr></tbody></table>
 </div>
 
 <h2>Equations</h2>
