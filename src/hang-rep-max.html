@@ -10,7 +10,7 @@ include:
 <input type="radio" id="raw" name="calc_output" value="raw"><label for="raw">raw outputs</label>
 <div id="solve-for-max">
   <h3>What is my 2"RM if I hang
-  <input type="number" min="0" step="any" required id="weight-max"> total weight
+  <input type="number" min="0" step="any" id="weight-max"> total weight
    for
   <select type="number" id="time-max">
     <option value="2">2</option>
@@ -40,9 +40,9 @@ include:
 </div>
 
 <div id="solve-for-time"><h3>If my 2"RM is
-  <input type="number" min="0" step="any" required id="max-time">
+  <input type="number" min="0" step="any" id="max-time">
   how long can I hang
-  <input type="number" min="0" step="any" required id="weight-time">?</h3>
+  <input type="number" min="0" step="any" id="weight-time">?</h3>
 </div>
 <div class="table-container">
   <table id="time-results"><thead><tr><th>Average</th><th>Epley</th><th>Brzycki</th><th>McGlothin</th><th>Lombardi</th><th>Mayhew</th><th>O'Conner</th><th>Wathen</th></tr></thead><tbody><tr><td id="Average-time-results">-</td><td id="Epley-time-results">-</td><td id="Brzycki-time-results">-</td><td id="McGlothin-time-results">-</td><td id="Lombardi-time-results">-</td><td id="Mayhew-time-results">-</td><td id="O'Conner-time-results">-</td><td id="Wathen-time-results">-</td></tr></tbody></table>
@@ -50,7 +50,7 @@ include:
 
 <div id="solve-for-weight">
   <h3>If my 2"RM is
-  <input type="number" min="0" step="any" required id="max-weight">
+  <input type="number" min="0" step="any" id="max-weight">
   how much weight can I hang for
   <select id="time-weight">
     <option value="3">3</option>
@@ -78,7 +78,7 @@ include:
 </div>
 
 <div id="solve-for-timeno2rm">
-  <h3>If I can hang <input type="number" min="0" step="any" required id="init-weight-timeno2rm"> weight for <select id="init-time-timeno2rm">
+  <h3>If I can hang <input type="number" min="0" step="any" id="init-weight-timeno2rm"> weight for <select id="init-time-timeno2rm">
     <option value="2">2</option>
     <option value="3">3</option>
     <option value="4">4</option>
@@ -98,14 +98,14 @@ include:
     <option value="18">18</option>
     <option value="19">19</option>
     <option value="20">20</option>
-  </select> seconds, how long can I hang <input type="number" min="0" step="any" required id="target-weight-timeno2rm">?</h3>
+  </select> seconds, how long can I hang <input type="number" min="0" step="any" id="target-weight-timeno2rm">?</h3>
 </div>
 <div class="table-container">
   <table id="timeno2rm-results"><thead><tr><th>Average</th><th>Epley</th><th>Brzycki</th><th>McGlothin</th><th>Lombardi</th><th>Mayhew</th><th>O'Conner</th><th>Wathen</th></tr></thead><tbody><tr><td id="Average-timeno2rm-results">-</td><td id="Epley-timeno2rm-results">-</td><td id="Brzycki-timeno2rm-results">-</td><td id="McGlothin-timeno2rm-results">-</td><td id="Lombardi-timeno2rm-results">-</td><td id="Mayhew-timeno2rm-results">-</td><td id="O'Conner-timeno2rm-results">-</td><td id="Wathen-timeno2rm-results">-</td></tr></tbody></table>
 </div>
 
 <div id="solve-for-weightno2rm">
-  <h3>If I can hang <input type="number" min="0" step="any" required id="init-weight-weightno2rm"> weight for <select id="init-time-weightno2rm">
+  <h3>If I can hang <input type="number" min="0" step="any" id="init-weight-weightno2rm"> weight for <select id="init-time-weightno2rm">
     <option value="2">2</option>
     <option value="3">3</option>
     <option value="4">4</option>
