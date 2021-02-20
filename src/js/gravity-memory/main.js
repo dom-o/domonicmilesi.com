@@ -1,3 +1,5 @@
+console.log('MOSTGUMBA')
+
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 canvas.onselectstart = function () { return false; }
