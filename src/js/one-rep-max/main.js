@@ -7,6 +7,8 @@ for(radio of document.getElementsByName('calc_output')) {
     max_eval(event)
     reps_eval(event)
     weight_eval(event)
+    repsno1rm_eval(event)
+    weightno1rm_eval(event)
   }
 }
 
@@ -79,7 +81,7 @@ const weightno1rm_eval = function() {
         var out = (sense && init_reps == 1) ? init_weight : formulas[el].solveForMax(init_reps, init_weight)
         if (sense && out < 0) { out=0 }
         if(!Number.isNaN(out)) {
-          out= (sense && target_reps == 1) ? Math.round(out*10)/10 : Math.round(formulas[e].solveForWeight(out, target_reps)*10)/10
+          out= (sense && target_reps == 1) ? Math.round(out*10)/10 : Math.round(formulas[el].solveForWeight(out, target_reps)*10)/10
           if (sense && out < 0) { out=0 }
           if(!Number.isNaN(out)) {
             avg+= out
@@ -98,13 +100,13 @@ document.getElementById('solve-for-weightno1rm').onchange = weightno1rm_eval
 const repsno1rm_eval = function() {
   const init_reps = Number.parseInt(document.getElementById('init-reps-repsno1rm').value, 10)
   const init_weight = Number.parseFloat(document.getElementById('init-weight-repsno1rm').value)
-  const target_weight = Number.parseFloat(document.getElementById('target-reps-repsno1rm').value)
+  const target_weight = Number.parseFloat(document.getElementById('target-weight-repsno1rm').value)
 
   if(Number.isNaN(init_reps) || Number.isNaN(init_weight) || Number.isNaN(target_weight)) {
     updateTable('-repsno1rm-results', '-')
   } else {
     const sense = sensible_output()
-    if(sense && init_weight = target_weight) {
+    if(sense && init_weight == target_weight) {
       updateTable('-repsno1rm-results', init_reps)
     } else {
       var avg= 0, length= 0
@@ -122,7 +124,7 @@ const repsno1rm_eval = function() {
           } else {
             out= Math.round(formulas[el].solveForReps(out, target_weight))
             if (sense && out < 0) { out=0 }
-            if(!NUmber.isNaN(out)) {
+            if(!Number.isNaN(out)) {
               avg+= out
               length++
             }
