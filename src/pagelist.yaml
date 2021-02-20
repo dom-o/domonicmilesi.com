@@ -1,8 +1,12 @@
+- title: Color Differentiator
+  url: https://domonicmilesi.com/colors/
+  date: 01/30/2021
+
 - title: Hangboard Edge Calculator
   url: hang-edge-calc.html
   date: 11/24/2020
 
-- title: Hangboard Edge Calculator Equations
+- title: Hangboard Edge Calculator Writeup
   url: hang-edge-calc-writeup.html
   date: 11/16/2020
 
@@ -15,7 +19,7 @@
   date: 07/16/2020
 
 - title: Gravity Memory
-  url: '#'
+  url: gravity-memory.html
   date: 04/23/2020
 
 - title: route descriptor

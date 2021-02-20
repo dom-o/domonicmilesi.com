@@ -3,7 +3,7 @@
     {"metalsmith-debug": {} },
     {"metalsmith-metadata": {
         "pages": "pagelist.yaml",
-        "projs": "fundamentals/projlist.yaml"
+        "projs": "projlist.yaml"
       }
     },
     { "metalsmith-markdown": {} },
@@ -12,13 +12,6 @@
     { "metalsmith-discover-helpers": {} },
     { "metalsmith-rootpath": {} },
     { "metalsmith-in-place": {} },
-    { "metalsmith-collections": {
-        "fundamentals": {
-          "pattern": "fundamentals/*",
-          "sortBy": "ord"
-        }
-      }
-    },
     { "metalsmith-nestedlayouts": {} }
   ]
 }
