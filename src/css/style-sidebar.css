@@ -1,4 +1,6 @@
-#name{
+.sidebar h1{
+  line-height:1.6;
+  font-size:1rem;
   margin:0;
 }
 .sidebar {
@@ -20,7 +22,7 @@
 }
 
 @media (min-width: 70em) {
-  #name {
+  .sidebar h1 {
     margin:0 0 0.5rem 0;
   }
   .content {
