@@ -13,7 +13,7 @@ html {
   font-size:1rem;
 }
 body {
-  background-color: #222;
+  background-color: #121212;
   color: #FFF;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
@@ -25,19 +25,23 @@ a {
   text-decoration: none;
 }
 .content a:link {
-  color: #0095F8;
+  /* color: #0095F8; blue */
+  color: #FFF;
   border-bottom: .1em solid;
-  background-color: #222;
 }
 .content a:visited {
-  color: #8383FF;
+  /* color: #8383FF; purple */
+  color: #b3b3b3;
 }
 .content a:hover, .content a:active {
-  color: #222;
-  background-color: #0095F8;
+  color: #121212;
+  /* background-color: #0095F8; */
+  background-color: #FFF;
 }
 .content a:visited:hover, .content a:visited:active {
-  background-color: #8383FF;
+  color: #121212;
+  background-color: #b3b3b3;
+  /* background-color: #8383FF; */
 }
 
 p {

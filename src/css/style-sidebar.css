@@ -6,7 +6,8 @@
 .sidebar {
   text-align: left;
   padding: 1rem 1rem 1rem 1rem;
-  background-color: #38204b;
+  /* background-color: #38204b; sidebar purple */
+  background-color: #2c2c2c;
 }
 .sidebar a {
   font-weight: normal;
@@ -14,7 +15,8 @@
 }
 .sidebar a:active, .sidebar a:hover {
   background-color: #fff;
-  color: #38204b;
+  /* color: #38204b; */
+  color: #2c2c2c;
 }
 .sidebar-nav-item {
   display: inline-block;
