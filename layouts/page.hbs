@@ -1,7 +1,9 @@
 ---
 layout: default.hbs
 ---
-<h1>{{title}}</h1>
+{{#if title }}
+  <h1>{{title}}</h1>
+{{/if }}
 {{#if writeup }}
 {{{ writeup }}}
 {{else}}

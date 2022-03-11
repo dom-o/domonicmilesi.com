@@ -2,7 +2,9 @@
 layout: default.hbs
 sidebar: true
 ---
-<h1>{{ title }}</h1>
+{{#if title }}
+  <h1>{{ title }}</h1>
+{{/if }}
 <p>{{ moment date 'MMMM D, YYYY'}}</p>
 
 {{{ contents }}}
