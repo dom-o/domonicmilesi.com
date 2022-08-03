@@ -1,10 +1,38 @@
+# - title: How To Design A Hangboard
+#   url: hangboard-design.html
+#   date: 06/13/22
+
+# - title: How To Design A Product Page For A Climbing Hold Or Hangboard
+#   url: hangboard-prod-page.html
+#   date: 06/13/2022
+
+- title: rss-restart
+  url: https://domonicmilesi.com/rss-restart
+  date: 08/03/2022
+
+# - title: Color Differentiator writeup
+#   url: about-color-diff.html
+#   date: 07/07/2022
+#
+# - title: rss-restart writeup
+#   url: about-rss-restart.html
+#   date: 07/05/2022
+#
+# - title: juggle-skill writeup
+#   url: about-juggle.html
+#   date: 06/18/2022
+#
+# - title: spotify-recs-controller writeup
+#   url: about-spotify-recs-controller.html
+#   date: 06/13/2022
+#
 - title: Juggling Tricks Matrix
   url: https://domonicmilesi.com/juggle
   date: 09/23/2021
 
-# - title: Review: Strength and Conditioning Interrogations - Alwyn Cosgrove
-#   url: interrogations-cosgrove-review.html
-  # date: 07/12/2021
+- title: "Review: Strength and Conditioning Interrogations - Alwyn Cosgrove"
+  url: interrogations-cosgrove-review.html
+  date: 07/12/2021
 
 - title: spotify-recs-controller
   url: https://domonicmilesi.com/spotify-recs-controller
