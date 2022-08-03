@@ -25,23 +25,23 @@ a {
   text-decoration: none;
 }
 .content a:link {
-  /* color: #0095F8; blue */
+  /* color: #0095F8; link blue */
   color: #FFF;
   border-bottom: .1em solid;
 }
 .content a:visited {
-  /* color: #8383FF; purple */
+  /* color: #8383FF; link visited purple */
   color: #b3b3b3;
 }
 .content a:hover, .content a:active {
   color: #121212;
-  /* background-color: #0095F8; */
+  /* background-color: #0095F8; link blue*/
   background-color: #FFF;
 }
 .content a:visited:hover, .content a:visited:active {
   color: #121212;
   background-color: #b3b3b3;
-  /* background-color: #8383FF; */
+  /* background-color: #8383FF; link visited purple */
 }
 
 p {
