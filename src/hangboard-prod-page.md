@@ -1,8 +1,7 @@
 ---
-layout: post.hbs
-title: If you want me to buy your hangboard, put this stuff in your product page
-date: 08/03/2021
+layout: templates/post.njk
 sidebar: true
+ord: 15
 ---
 ## Pictures
 - Full front view. Classic for a reason. Show the entire board. Opportunity to include measurements for length/width.

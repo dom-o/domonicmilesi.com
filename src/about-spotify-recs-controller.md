@@ -1,8 +1,7 @@
 ---
-layout: post.hbs
-title: spotify-recs-controller Write-up
-date: 06/13/2022
+layout: templates/post.njk
 sidebar: true
+ord: 11
 ---
 spotify-recs-controller is a vuejs/node web app that lets you play with the Spotify recommendation API, built solo by me.
 

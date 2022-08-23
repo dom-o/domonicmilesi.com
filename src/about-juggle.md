@@ -1,8 +1,7 @@
 ---
-layout: post.hbs
-title: juggle-skill Write-up
-date: 06/18/2022
+layout: templates/post.njk
 sidebar: true
+ord: 12
 ---
 juggle-skill is a visualization of the relationships between the [Library of Juggling](https://libraryofjuggling.com/) tricks, built solo by me.
 

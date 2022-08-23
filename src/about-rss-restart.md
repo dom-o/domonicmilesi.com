@@ -1,8 +1,7 @@
 ---
-layout: post.hbs
-title: rss-restart Write-up
-date: 08/03/2022
+layout: templates/post.njk
 sidebar: true
+ord: 14
 ---
 rss-restart is a Django app that creates an RSS feed out of a list of URLs.
 
