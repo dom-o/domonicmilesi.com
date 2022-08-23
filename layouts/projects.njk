@@ -1,0 +1,51 @@
+{% extends "./default.njk" %}
+
+{% block custom_head %}
+<style>
+  details summary {
+    cursor: pointer
+  }
+  details summary > * {
+    display: inline;
+  }
+  h3 {
+    margin-top: 0.5rem;
+  }
+</style>
+{% endblock %}
+
+{% block main %}
+  {% macro projlist(val) %}
+    {% for proj in projs|filter("status", val) %}
+      <li>
+        <h3><a href="{% if proj.writeup %} {{ proj.writeup }} {% elif proj.live %} {{ proj.live }} {% elif proj.repo %} {{ proj.repo }} {% endif %}">{{ proj.title }}</a></h3>
+        <p>{{ proj.descr }}</p>
+      </li>
+    {% endfor %}
+  {% endmacro %}
+
+  <h1>Projects</h1>
+
+  {% if projs|filter("status", "curr")|length > 0 %}
+    <h2>New, exciting</h2>
+    <ul>
+      {{ projlist("curr") }}
+    </ul>
+  {% endif %}
+
+  {% if projs|filter("status", "dev")|length > 0 %}
+    <h2>Currently working on:</h2>
+    <ul>
+      {{ projlist("dev") }}
+    </ul>
+  {% endif %}
+
+  {% if projs|filter("status", "old")|length > 0 %}
+    <details>
+      <summary><h2>Older</h2></summary>
+      <ul>
+        {{ projlist("old") }}
+      </ul>
+    </details>
+  {% endif %}
+{% endblock %}

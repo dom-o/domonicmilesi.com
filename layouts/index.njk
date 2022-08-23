@@ -1,0 +1,15 @@
+{% extends "./default.njk" %}
+
+{% block main %}
+<ul style="padding-left:0; line-height:2;">
+
+{% for page in pages | sort(true, false, 'date') %}
+  <li><time datetime="{{ page.date | UTCdate }}">{{ page.date | blogDate }}</time> -
+    <a {% if page.url %} href="{{ page.url }}"
+    {%else%} href="{{ page.path }}" {% endif %}>
+        {{ page.title }}
+    </a>
+  </li>
+{% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+      {% if title %}
+        {{ title }} -
+      {% endif %}
+      domonicmilesi.com
+    </title>
+
+    <meta charset="utf-8">
+    <meta name="author" content="Domonic Milesi" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="{{ rootPath }}favicon.png">
+    <link rel="stylesheet" href="{{ rootPath }}css/style.css" />
+    {%if sidebar %}
+    <link rel="stylesheet" href="{{ rootPath }}css/style-sidebar.css"/>
+    {% endif %}
+
+    {% block custom_head %}
+    {% endblock %}
+  </head>
+
+  <body>
+    {% if sidebar %}
+    {% include "./partials/sidebar.njk" %}
+    {% endif %}
+    <main class="content container">
+      {% block main %}
+        {{ contents | safe }}
+      {% endblock %}
+    </main>
+  </body>
+</html>
