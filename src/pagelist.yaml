@@ -1,59 +1,74 @@
 - title: If you want me to buy your hangboard, put this stuff in your product page
-  url: hangboard-prod-page.html
-  date: 08/03/2022
+  path: hangboard-prod-page.html
+  date: 2022-08-03
+  ord: 15
 
 - title: rss-restart writeup
-  url: about-rss-restart.html
-  date: 08/03/2022
+  path: about-rss-restart.html
+  date: 2022-08-03
+  ord: 14
 
 - title: rss-restart
   url: https://domonicmilesi.com/rss-restart
-  date: 08/03/2022
+  date: 2022-08-03
+  ord: 13
 
 - title: juggle-skill writeup
-  url: about-juggle.html
-  date: 06/18/2022
+  path: about-juggle.html
+  date: 2022-06-18
+  ord: 12
 
 - title: spotify-recs-controller writeup
-  url: about-spotify-recs-controller.html
-  date: 06/13/2022
+  path: about-spotify-recs-controller.html
+  date: 2022-06-13
+  ord: 11
 
 - title: Juggling Tricks Matrix
   url: https://domonicmilesi.com/juggle
-  date: 09/23/2021
+  date: 2021-09-23
+  ord: 10
 
 - title: "Review: Strength and Conditioning Interrogations - Alwyn Cosgrove"
-  url: interrogations-cosgrove-review.html
-  date: 07/12/2021
+  path: interrogations-cosgrove-review.html
+  date: 2021-07-12
+  ord: 9
 
 - title: spotify-recs-controller
   url: https://domonicmilesi.com/spotify-recs-controller
-  date: 04/26/2021
+  date: 2021-04-26
+  ord: 8
 
 - title: Color Differentiator
   url: https://domonicmilesi.com/colors/
-  date: 01/30/2021
+  date: 2021-01-30
+  ord: 7
 
 - title: Hangboard Edge Calculator
-  url: hang-edge-calc.html
-  date: 11/24/2020
+  path: hang-edge-calc.html
+  date: 2020-11-24
+  ord: 6
 
 - title: Hangboard Edge Calculator Writeup
-  url: hang-edge-calc-writeup.html
-  date: 11/16/2020
+  path: hang-edge-calc-writeup.html
+  date: 2020-11-16
+  ord: 5
 
 - title: Hangboard Rep Max Calculator
-  url: hang-rep-max.html
-  date: 10/07/2020
+  path: hang-rep-max.html
+  date: 2020-10-07
+  ord: 4
 
 - title: One Rep Max Calculator
-  url: one-rep-max.html
-  date: 07/16/2020
+  path: one-rep-max.html
+  date: 2020-07-16
+  ord: 3
 
 - title: Gravity Memory
-  url: gravity-memory.html
-  date: 04/23/2020
+  path: gravity-memory.html
+  date: 2020-04-23
+  ord: 2
 
 - title: route descriptor
   url: https://dom-o.github.io/route-descriptor/
-  date: 04/01/2020
+  date: 2020-04-01
+  ord: 1
