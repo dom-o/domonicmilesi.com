@@ -12,7 +12,7 @@ Metalsmith(__dirname)
       url: "https://domonicmilesi.com/",
       author: "Domonic Milesi",
       title:'domonicmilesi.com',
-      description: 'The complete online works of Domonic Milesi'
+      description: "Domonic Milesi's personal site."
     },
   })
   .use(metadata({
@@ -28,7 +28,6 @@ Metalsmith(__dirname)
         blogDate: string => (new Date(string).toLocaleString("en-US", { year: "numeric", month: "long", day: "numeric" })),
         match: (list, prop, val) => list.find(a => a[prop]==val),
         filter: (list, prop, val) => list.filter(a => a[prop] == val),
-        removeIndex: str => str.replace('index.html', '')
       }
     }
   }))
