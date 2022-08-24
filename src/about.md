@@ -4,10 +4,10 @@ sidebar: true
 title: About
 ---
 <picture>
-  <source srcset="img/me-3.webp" type="image/webp" />
+  <source srcset="img/me.webp" type="image/webp" />
   <img
     class="me"
-    src="img/me-3.jpg"
+    src="img/me.jpg"
     alt="Domonic Milesi"
   />
 </picture>
