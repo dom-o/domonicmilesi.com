@@ -1,8 +1,9 @@
 ---
 layout: about.njk
 sidebar: true
-title: About
+title: Me
 ---
+<h1>Me</h1>
 <picture>
   <source srcset="img/me.webp" type="image/webp" />
   <img
@@ -11,7 +12,11 @@ title: About
     alt="Domonic Milesi"
   />
 </picture>
-<h2>--has recently googled all of the following:</h2>
+<p>
+  Moniker Domonic. Computer Science B.S. holder from University of Pittsburgh; currently searching for work in that field.
+</p>
+<p>
+Firm believer that within what you ask the oracle is who you are; to that end, have recently googled all of the following:
   <ul>
     <li><a href="https://www.google.com/search?q=lattice+finger+strength">lattice finger strength</a></li>
     <li><a href="https://www.google.com/search?q=paperclip+ai+game">paperclip ai game</a></li>
@@ -24,10 +29,13 @@ title: About
     <li><a href="https://www.google.com/search?q=rock+climbing+frank+curto+park">rock climbing frank curto park</a></li>
     <li><a href="https://www.google.com/search?q=beeminder+api">beeminder api</a></li>
   </ul>
-<h2>--can be found elsewhere/contacted:</h2>
-  &nbsp;&nbsp;
+</p>
+<p>
+  Can be found elsewhere/contacted:
+  <br>
   <a href="mailto:domonic.n.milesi@gmail.com?subject=whats%20good&body=yoo,%0d%0a">domonic.n.milesi@gmail.com</a>
   &nbsp;
   <a href="https://github.com/dom-o">github</a>
   &nbsp;
   <a href="https://twitter.com/domonic_m">twitter</a>
+</p>
