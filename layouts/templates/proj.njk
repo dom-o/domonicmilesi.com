@@ -3,9 +3,11 @@ sidebar: true
 ---
 {% extends "./default.njk" %}
 
+{% set curr = pages|match("ord", ord) %}
+{% set title = curr.title %}
+
 {% block main %}
-  {% set curr = pages|match("ord", ord) %}
-    <h1>{{ curr.title }}</h1>
+  <h1>{{ curr.title }}</h1>
   {{ contents | safe }}
 {% endblock %}
 y
