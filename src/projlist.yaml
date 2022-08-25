@@ -19,14 +19,14 @@
   descr: Adjacency matrix to explore relationships between juggling tricks.
   status: curr
 
-- title: spotify recommendations controller
+- title: spotify-recs-controller
   writeup: about-spotify-recs-controller.html
   live: https://domonicmilesi.com/spotify-recs-controller
   repo: https://github.com/dom-o/spotify-recs-controller
-  descr: Lets you fine-tune the Spotify recommendations engine
+  descr: Lets you play around with the Spotify recommendations engine.
   status: curr
 
-- title: color differentiator
+- title: Color Differentiator
   writeup:
   live: https://domonicmilesi.com/colors/
   repo: https://github.com/dom-o/colors
@@ -65,5 +65,5 @@
   writeup:
   live: https://dom-o.github.io/route-descriptor/
   repo: https://github.com/dom-o/route-descriptor
-  descr: Generates Mountain Project pages with made-up beta.
+  descr: Generates Mountain Project routes pages with made-up beta.
   status: old
