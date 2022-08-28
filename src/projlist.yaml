@@ -5,10 +5,10 @@
   descr:
   status: unk
 
-- title: rss-restart
-  writeup: about-rss-restart.html
-  live: https://domonicmilesi.com/rss-restart
-  repo: https://github.com/dom-o/rss-restart
+- title: rss-reair
+  writeup: about-rss-reair.html
+  live: https://domonicmilesi.com/rss-reair
+  repo: https://github.com/dom-o/rss-reair
   descr: Creates an RSS feed from a list of URLs.
   status: curr
 

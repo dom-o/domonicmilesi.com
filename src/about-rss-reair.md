@@ -3,9 +3,9 @@ layout: templates/post.njk
 sidebar: true
 ord: 14
 ---
-rss-restart is a Django app that creates an RSS feed out of a list of URLs.
+rss-reair is a Django app that creates an RSS feed out of a list of URLs.
 
-[check it out](https://domonicmilesi.com/rss-restart/) &nbsp; [github](https://github.com/dom-o/rss-restart)
+[check it out](https://domonicmilesi.com/rss-reair/) &nbsp; [github](https://github.com/dom-o/rss-reair)
 
 ## Why
 Built this because I wanted a way to 'restart' inactive RSS feeds. It's pretty often I subscribe to something turns out not to be updating anymore - particular impetus for this project surfaced when I subscribed to James Somers's blog after reading his post on Webster's 1913 dictionary, only to watch him post one thing since 2019. I started working through his archives on my own, but started work on this bec the reading experience would be way easier for me if I could just get his RSS feed to go back and publish everything again from the beginning, like how [@YearOnEarth](https://twitter.com/yearonearth) used to restart every year or how they re-aired the Breaking Bad marathon before El Camino came out.
