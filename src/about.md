@@ -36,6 +36,4 @@ Firm believer that within what you ask the oracle is who you are; to that end, h
   <a href="mailto:domonic.n.milesi@gmail.com?subject=whats%20good&body=yoo,%0d%0a">domonic.n.milesi@gmail.com</a>
   &nbsp;
   <a href="https://github.com/dom-o">github</a>
-  &nbsp;
-  <a href="https://twitter.com/domonic_m">twitter</a>
 </p>
