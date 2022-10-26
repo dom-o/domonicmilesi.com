@@ -13,8 +13,9 @@ title: Me
   />
 </picture>
 <p>
-  Moniker Domonic. Computer Science B.S. holder from University of Pittsburgh; currently searching for work in that field.
+  Moniker Domonic. Grew up in Sunnyvale, California; received a B.S. in Computer Science from  University of Pittsburgh in 2018. Enjoys rock climbing.
 </p>
+  <p>Currently: searching for work.</p>
 <p>
 Firm believer that within what you ask the oracle is who you are; to that end, have recently googled all of the following:
   <ul>
