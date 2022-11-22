@@ -15,8 +15,8 @@ It goes like this:
   1. spell everything phonetically
   2. elide short vowels, except those at the beginning of a word
       - I started using the arabic short vowels in cases where omitting entirely impedes comprehension
-  3. for /ch use 'c', for /th use the thorn (I use ħ bec it's easier to write), for /sh use 'z'
-      - there's leeway here; the thorn is my devising and 'q' unused.
+  3. for 'ch' use *c*, for 'sh' use *z*
+      - for 'th' I use the thorn or *ħ* 
 
 Now, some passages both in plain English and abbreviated, for comparison:
 
