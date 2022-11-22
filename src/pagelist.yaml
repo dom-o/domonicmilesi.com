@@ -1,30 +1,30 @@
 - title: Slightly faster writing system that I use
-  path: abrevd-lang.html
+  path: abrevd-lang
   date: 2022-11-21
   ord: 16
 
 - title: If you want me to buy your hangboard, put this stuff in your product page
-  path: hangboard-prod-page.html
+  path: hangboard-prod-page
   date: 2022-08-03
   ord: 15
 
-- title: rss-reair writeup
-  path: about-rss-reair.html
+- title: rss-restart writeup
+  path: about-rss-restart
   date: 2022-08-03
   ord: 14
 
-- title: rss-reair
-  url: https://domonicmilesi.com/rss-reair
+- title: rss-restart
+  url: https://domonicmilesi.com/rss-restart
   date: 2022-08-03
   ord: 13
 
 - title: Juggling Tricks Matrix writeup
-  path: about-juggle.html
+  path: about-juggle
   date: 2022-06-18
   ord: 12
 
 - title: spotify-recs-controller writeup
-  path: about-spotify-recs-controller.html
+  path: about-spotify-recs-controller
   date: 2022-06-13
   ord: 11
 
@@ -34,7 +34,7 @@
   ord: 10
 
 - title: "Review: Strength and Conditioning Interrogations - Alwyn Cosgrove"
-  path: interrogations-cosgrove-review.html
+  path: interrogations-cosgrove-review
   date: 2021-07-12
   ord: 9
 
@@ -49,27 +49,27 @@
   ord: 7
 
 - title: Hangboard Edge Calculator
-  path: hang-edge-calc.html
+  path: hang-edge-calc
   date: 2020-11-24
   ord: 6
 
 - title: Hangboard Edge Calculator Writeup
-  path: hang-edge-calc-writeup.html
+  path: hang-edge-calc-writeup
   date: 2020-11-16
   ord: 5
 
 - title: Hangboard Rep Max Calculator
-  path: hang-rep-max.html
+  path: hang-rep-max
   date: 2020-10-07
   ord: 4
 
 - title: One Rep Max Calculator
-  path: one-rep-max.html
+  path: one-rep-max
   date: 2020-07-16
   ord: 3
 
 - title: Gravity Memory
-  path: gravity-memory.html
+  path: gravity-memory
   date: 2020-04-23
   ord: 2
 
