@@ -6,7 +6,7 @@ module.exports = function(options) {
   const url = require('url');
 
   const limit = options.limit != null ? options.limit : 20;
-  const destination = options.destination || 'feed';
+  const destination = options.destination || 'feed.rss';
   const collectionName = options.collection;
 
   // if (!collectionName) {
